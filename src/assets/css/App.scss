@@ -412,14 +412,14 @@ body{
     }
   }
   .upcro_launch_main .launch_text_box .launch_text_box_inn h3 {
-    font-size: 40px;
-    line-height: 50px;
+    font-size: 36px;
+    line-height: 46px;
   }
   .upcro_launch_main .launch_text_box .launch_text_box_inn p {
-    font-size: 18px;
-    line-height: 28px;
-    margin-top: 15px;
-    margin-bottom: 28px;
+    font-size: 17px;
+    line-height: 24px;
+    margin-top: 12px;
+    margin-bottom: 22px;
   }
   .upcro_launch_main {
     padding-top: 100px;
@@ -546,9 +546,12 @@ body{
       line-height: 22px;
     }
     h3{
-      font-size: 27px;
+      font-size: 26px;
       margin-top: 12px;
-      line-height: 32px;  
+      line-height: 26px;  
+    }
+    .aboutus_main .about_border_box .sadow_box {
+      padding: 15px 0 20px 0;
     }
   }
   .aboutus_main .about_border_box .about_text_prnt {
@@ -774,8 +777,8 @@ body{
     line-height: 22px;
   }
   .feature_main .featur_max_box .feature_text_box h3 {
-    font-size: 29px;
-    line-height: 36px;
+    font-size: 27px;
+    line-height: 32px;
   }
   .feature_main .featur_max_box .feature_text_box p {
     font-size: 15px;
@@ -944,6 +947,9 @@ body{
     line-height: 16px;
     bottom: -18px;
   }
+  .team_main .about_border_box .sadow_box {
+    padding: 15px 15px 20px 15px;
+  }
 }
 .articlesec_main{
   margin-top: 140px;
@@ -1071,6 +1077,9 @@ body{
     background-size: contain !important;
     z-index: 2 !important;
     left: calc(50% - 175px);
+    &:hover{
+      filter: invert(64%) sepia(85%) saturate(4479%) hue-rotate(23deg) brightness(94%) contrast(95%);
+    }
     &::before{
       display: none !important;
     }
@@ -1084,6 +1093,9 @@ body{
     background-size: contain !important;
     z-index: 2 !important;
     right: calc(50% - 175px) !important;
+    &:hover{
+      filter: invert(64%) sepia(85%) saturate(4479%) hue-rotate(23deg) brightness(94%) contrast(95%);
+    }
     &::before{
       display: none !important;
     }
@@ -1117,8 +1129,8 @@ body{
   }
   .articlesec_main h3 {
     font-size: 36px;
-    line-height: 40px;
-    margin-top: 10px;
+    line-height: 36px;
+    margin-top: 8px;
   }
   .articlesec_main .slick-slider .slick-track, .articlesec_main .slick-slider .slick-list {
     padding-top: 15px;
@@ -1140,16 +1152,40 @@ body{
     bottom: 1px !important;
     height: 15px !important;
     width: 57px !important;
-    left: calc(50% - 136px) !important;
+    left: calc(50% - 120px) !important;
   }
   .articlesec_main .slick-next{
     bottom: 1px !important;
     height: 15px !important;
     width: 57px !important;
-    right: calc(50% - 136px) !important;
+    right: calc(50% - 120px) !important;
   }
   .articlesec_main .slick-dots {
-    bottom: 4px;
+    bottom: 6px;
+  }
+  .articlesec_main{
+    .slick-dots li {
+      width: 16px;
+      height: 16px;
+      margin: 0 3px;
+    }
+  }
+  .articlesec_main .slick-dots li button:hover {
+    width: 16px;
+    height: 16px;
+  }
+  .articlesec_main .slick-dots .slick-active button{
+    width: 16px;
+    height: 16px;
+  }
+  .articlesec_main .slick-dots li button {
+    background-color: #5E460B !important;
+    width: 12px;
+    height: 12px;
+  }
+  .articlesec_main .slick-dots .slick-active button {
+    width: 16px;
+    height: 16px;
   }
 }
 .roadmapsec_main{
@@ -1321,6 +1357,12 @@ body{
   }
 }
 @media screen and (max-width: 575px) {
+  .roadmapsec_main .roadmap_cntnt .road_cntnt_row .road_map_img_prnt {
+    height: 150px !important;
+  }
+  .roadmapsec_main .sadow_box {
+    padding: 15px 0 18px 0;
+  }
   .roadmapsec_main {
     margin-top: 70px;
   }
@@ -1331,7 +1373,7 @@ body{
   }
   .roadmapsec_main .sadow_box h3 {
     font-size: 34px;
-    margin-top: 12px;
+    margin-top: 10px;
     line-height: 34px;
   }
   .roadmapsec_main .sadow_box h6 {
@@ -1340,9 +1382,14 @@ body{
   }
   .roadmapsec_main .roadmap_cntnt .road_cntnt_row .road_text_prnt h5 {
     text-align: center;
+    font-size: 21px;
+    line-height: 26px;
+    margin-bottom: 13px;
   }
   .roadmapsec_main .roadmap_cntnt .road_cntnt_row .road_text_prnt p {
     text-align: center;
+    font-size: 15px;
+    line-height: 20px;
   }
   .roadmapsec_main .enter_roadmap_btn {
     font-size: 13px;
@@ -1672,9 +1719,9 @@ body{
   }
 }
 .dashbourd_menu_btn{
-  border: 1px solid #ffffff !important;
+  border: 1px solid #F3BA2F !important;
   svg{
-    color: #ffffff !important;
+    color: #F3BA2F !important;
   }
 }
 .sidebar_header {
@@ -2560,7 +2607,7 @@ body{
     padding: 12px 10px 10px 10px;
   }
   .swap_border_Box .swap_upcro_brdr_bx .flex_bx input {
-    font-size: 22px;
+    font-size: 19px;
     line-height: 27px;
   }
   .swap_border_Box .swap_upcro_brdr_bx .flex_bx p {
