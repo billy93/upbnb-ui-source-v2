@@ -68,45 +68,45 @@ export default function Header() {
                 activeClass='active'
                 spy={true}
                 smooth={true}
-                offset={-60}
+                offset={-100}
                 duration={500}>
                 INTRODUCTION</Link>
               <Link to='About'
                 activeClass='active'
                 spy={true}
                 smooth={true}
-                offset={-60}
+                offset={-100}
                 duration={500}>ABOUT</Link>
                 <Link to='Technology'
                   activeClass='active'
                   spy={true}
                   smooth={true}
-                  offset={-60}
+                  offset={-100}
                   duration={500}>TECHNOLOGY</Link>
                 <Link to='Features'
                   activeClass='active'
                   spy={true}
                   smooth={true}
-                  offset={-60}
+                  offset={-100}
                   duration={500}>FEATURES</Link>
                 <Link to='Team'
                   activeClass='active'
                   spy={true}
                   smooth={true}
-                  offset={-60}
+                  offset={-100}
                   duration={500}>TEAM</Link>
                 <NavLink to="/articles">ARTICLE</NavLink>
                 <Link to='Roadmap'
                   activeClass='active'
                   spy={true}
                   smooth={true}
-                  offset={-60}
+                  offset={-100}
                   duration={500}>ROADMAP</Link>
                 <Link to='HowToBuy'
                   activeClass='active'
                   spy={true}
                   smooth={true}
-                  offset={-60}
+                  offset={-100}
                   duration={500} className='last_link'>HOW TO BUY</Link>
               </Box>
             </Flex>
@@ -136,45 +136,45 @@ export default function Header() {
                 activeClass='active'
                 spy={true}
                 smooth={true}
-                offset={-60}
+                offset={-100}
                 duration={500}>
                 INTRODUCTION</Link>
               <Link to='About'
                 activeClass='active'
                 spy={true}
                 smooth={true}
-                offset={-60}
+                offset={-100}
                 duration={500}>ABOUT</Link>
                 <Link to='Technology'
                   activeClass='active'
                   spy={true}
                   smooth={true}
-                  offset={-60}
+                  offset={-100}
                   duration={500}>TECHNOLOGY</Link>
                 <Link to='Features'
                   activeClass='active'
                   spy={true}
                   smooth={true}
-                  offset={-60}
+                  offset={-100}
                   duration={500}>FEATURES</Link>
                 <Link to='Team'
                   activeClass='active'
                   spy={true}
                   smooth={true}
-                  offset={-60}
+                  offset={-100}
                   duration={500}>TEAM</Link>
                 <NavLink to="/articles">ARTICLE</NavLink>
                 <Link to='Roadmap'
                   activeClass='active'
                   spy={true}
                   smooth={true}
-                  offset={-60}
+                  offset={-100}
                   duration={500}>ROADMAP</Link>
                 <Link to='HowToBuy'
                   activeClass='active'
                   spy={true}
                   smooth={true}
-                  offset={-60}
+                  offset={-100}
                   duration={500} className='last_link'>HOW TO BUY</Link>
             </Box>
           </Box>

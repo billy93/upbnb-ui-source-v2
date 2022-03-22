@@ -11,8 +11,8 @@ export default function StakingTabs() {
             <Tabs variant='unstyled'>
                 <TabList className='tab_btn_prnt'>
                     <Box className='tab_border'>
-                        <Tab bg={'#F3BA2F'} _selected={{ color: '#FFFFFF', bg: '#000000' }} className="staktab01">Stake upCRO</Tab>
-                        <Tab bg={'#F3BA2F'} _selected={{ color: '#FFFFFF', bg: '#000000;' }} className="staktab02">Unstake xUpCRO</Tab>
+                        <Tab bg={'#F3BA2F'} _selected={{ color: '#FFFFFF', bg: '#000000' }} className="staktab01">Staking</Tab>
+                        <Tab bg={'#F3BA2F'} _selected={{ color: '#FFFFFF', bg: '#000000;' }} className="staktab02">Vault Staking</Tab>
                     </Box>
                 </TabList>
                 <TabPanels>

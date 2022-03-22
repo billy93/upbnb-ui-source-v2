@@ -108,8 +108,8 @@ export default function Swap() {
                     <Box className='contracts_box'>
                         <Heading as="h4">Contracts</Heading>
                         <Box className='upcro_copyflex'>
-                            <Heading as="h6">upCRO<Text>0xb0620........f790f<Button><Image src="img/copy_ic.svg" alt='' /></Button></Text></Heading>
-                            <Heading as="h6" className='right_h6'>xUpCRO<Text>0x78Bf85......ed90e<Button><Image src="img/copy_ic.svg" alt='' /></Button></Text></Heading>
+                            <Heading as="h6">upBNB<Text>0xb0620........f790f<Button><Image src="img/copy_ic.svg" alt='' /></Button></Text></Heading>
+                            <Heading as="h6" className='right_h6'>xUpBNB<Text>0x78Bf85......ed90e<Button><Image src="img/copy_ic.svg" alt='' /></Button></Text></Heading>
                         </Box>
                     </Box>
                 </Container>

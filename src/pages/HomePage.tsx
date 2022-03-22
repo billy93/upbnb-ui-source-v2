@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import FirstSec from '../components/Home/FirstSec';
 import Layout from './Layout';
 import { Box } from '@chakra-ui/react';
@@ -13,6 +13,9 @@ import AOS from 'aos';
 
 export default function HomePage() {
   AOS.init();
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <Layout className='app-page'>
       <>

@@ -186,6 +186,7 @@ body{
       box-shadow: none !important;
       margin-right:55px;
       transition: all 0.2s ease-out;
+      cursor: pointer;
       &:hover{
         color: #F3BA2F;
       }
@@ -1820,7 +1821,7 @@ body{
   }
 }
 .dashboard_main_page{
-  background: url(../img/dashboard_bg.jpg) no-repeat 0 0;
+  background: url(../img/dashboard_bg.jpg) no-repeat right 0;
   background-size: cover;
   min-height: 2057px;
   padding: 0 15px 40px 15px;
@@ -2012,7 +2013,7 @@ body{
 }
 .staking_main{
   min-height: 100vh;
-  background: url(../img/staking_bg.jpg) no-repeat center;
+  background: url(../img/staking_bg.jpg) no-repeat right 0;
   background-size: cover;
   padding-top: 98px;
   padding-bottom: 40px;
@@ -2078,7 +2079,7 @@ body{
 .stake_tab_panel01{
   margin-top: 35px;
   padding: 25px 40px 40px 40px;
-  background: #333B49;
+  background: #000000;
   h6{
     font-family: $f_primary;
     font-style: normal;
@@ -2219,7 +2220,7 @@ body{
   max-width: 652px;
   margin: 0 auto;
   padding: 20px 20px 25px 20px;
-  background: #272D37;
+  background: #000000;
   border-radius: 16px;
     h4{
     font-family: $f_primary;
@@ -2266,7 +2267,7 @@ body{
           box-shadow: none !important;
           &:hover{
             img{
-              filter: invert(54%) sepia(93%) saturate(5742%) hue-rotate(207deg) brightness(96%) contrast(107%);
+              filter: invert(0) brightness(50%) ;
             }
           }
         }
@@ -2399,7 +2400,7 @@ body{
   background: #2c2307cc;
 }
 .swap_main{
-  background: url(../img/swap_bg.jpg) no-repeat center;
+  background: url(../img/swap_bg.jpg) no-repeat right 0;
   background-size: cover;
   min-height: 100vh;
   padding-top: 154px;
@@ -2526,24 +2527,26 @@ body{
 }
 .slect_box {
   .slct__menu {
+    background: transparent !important;
+   
     >div {
-      background: #333B49 !important;
-      border: 1px solid #0D6EFD;
-      box-sizing: border-box;
-      border-radius: 10px;
+      border: 1px solid  #F3BA2F;
+      background: #F3BA2F!important;
+      border-radius: 15px;
       div {
-      background: #333B49 !important;
+      background: #F3BA2F !important;
         div {
           cursor: pointer;
           &:hover {
-            background: #5270A3 !important;
-            color: #ccba87 !important;
+            background:#f1c452 !important ;
+            color: #f1c452;
           }
           
         }
       }
     }
   }
+
   .slct__indicator-separator {
     display: none !important;
   }
@@ -2564,6 +2567,10 @@ body{
     padding-left: 7px;
     display: flex;
     align-items: center;
+    &:hover{
+      border-color: #F3BA2F;
+
+    }
   }
   .country-option {
     display: flex;
@@ -2670,6 +2677,8 @@ body{
 }
 .faq_accordians_prnt{
   padding-left: 39px;
+  max-width: 1142px;
+  margin: 0 auto;
   .main_accordian{
     .boedrd_faq{
       border: 1px solid #F3BA2F !important;
@@ -2805,7 +2814,7 @@ body{
   }
 }
 .roadmap_main{
-  background: url(../img/roadmap_bg.jpg) no-repeat center;
+  background: url(../img/roadmap_bg.jpg) no-repeat right 0;
   background-size:  cover;
   min-height: 2658px;
   padding-top: 98px;
@@ -2933,13 +2942,13 @@ body{
   margin-bottom: 55px;
   .ready_text_prnt h4{
     width: 215px;
-    border: 2px solid #0D6EFD;
+    border: 2px solid #F3BA2F;
     &::before{
       background: #0D6EFD;
     }
   }
   .ready_cntnt_inn .number_bx h2{
-    border: 2px solid #0D6EFD;
+    border: 2px solid #F3BA2F;
   }
 }
 .roadmp_future_box{
