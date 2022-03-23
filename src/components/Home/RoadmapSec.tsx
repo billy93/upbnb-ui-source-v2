@@ -20,8 +20,8 @@ export default function RoadmapSec() {
                             <Image src='img/road_map_img01.png' alt='' className='road_map_img0' />
                         </Box>
                         <Box className='road_text_prnt' data-aos="fade-up" data-aos-delay="500">
-                            <Heading as="h5">Activate Social channels and begin MGE</Heading>
-                            <Text>All social channels have been activated. The landing page and app page are live, and the MGE has been activated.</Text>
+                            <Heading as="h5">UpOnly Integration</Heading>
+                            <Text>Fees generated from UpOnly contracts launched on Binance Smart Chain will feed value back to the upBNB cornerstone vault, recycling even more extracted value back into the ecosystem to the benefit of token holders.</Text>
                         </Box>
                     </Box>
                     <Box className='road_cntnt_row'>
@@ -30,8 +30,8 @@ export default function RoadmapSec() {
                             <Image src='img/road_map_img02.png' alt='' className='road_map_img0' />
                         </Box>
                         <Box className='road_text_prnt' data-aos="fade-up" data-aos-delay="600">
-                            <Heading as="h5">Upgrade ERC31337 Contracts and add more features</Heading>
-                            <Text>Full rewrite of the ERC31337 standard designed for EmpireDex and RootDex is complete. Two new vaults have been added, a Marketing vault and a Drip vault. Lastly a brand new liquidity building function has been added that will be activated later.</Text>
+                            <Heading as="h5">Full upgrade of ERC-31337 contracts </Heading>
+                            <Text>A full rewrite of the ERC-31337 standard is complete and coming to upBNB.  We will be incorporating two new vaults to the system, a marketing vault and a drip staking vault. Lastly a brand new liquidity building function will be added and activated at a later date. </Text>
                         </Box>
                     </Box>
                     <Box className='road_cntnt_row'>
@@ -40,8 +40,8 @@ export default function RoadmapSec() {
                             <Image src='img/road_map_img03.png' alt='' className='road_map_img0' />
                         </Box>
                         <Box className='road_text_prnt' data-aos="fade-up" data-aos-delay="700">
-                            <Heading as="h5">Open MGE for BSC users to join with BNB</Heading>
-                            <Text>If you contribute this way, make sure your BSC wallet is also BNB compatible. We recommend using MetaMask if you plan on contributing this way. Once the MGE ends, we lock the liquidity then launch the token. Everyone who participates in the MGE gets the best possible price.</Text>
+                            <Heading as="h5">Activate New Buyback Vault</Heading>
+                            <Text>Our newest vault, still in development, will have an auto-buyback feature with customizable parameters. We will be working closely with our community to choose our vault buyback strategies.</Text>
                         </Box>
                     </Box>
                     <Box className='road_cntnt_row'>
@@ -50,8 +50,8 @@ export default function RoadmapSec() {
                             <Image src='img/road_map_img04.png' alt='' className='road_map_img0' />
                         </Box>
                         <Box className='road_text_prnt' data-aos="fade-up" data-aos-delay="800">
-                            <Heading as="h5">Token launch with over 10k% staking APY</Heading>
-                            <Text>Right when the MGE finishes and the market goes live there will be no circulating tokens so if users want some of the 10k% APY staking rewards they will have to buy from the market. This should create the perfect launch conditions</Text>
+                            <Heading as="h5">Activate Marketing Vault</Heading>
+                            <Text>The dedicated marketing vault will receive 20% of all collected trade fees. After contract upgrades are complete and our automatic buybacks are in place our maketing vault will allow us to continue to ramp up upBNB’s marketing efforts.</Text>
                         </Box>
                     </Box>
                     <Box className='road_cntnt_row'>

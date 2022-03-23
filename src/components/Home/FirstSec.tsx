@@ -14,7 +14,7 @@ export default function FirstSec() {
                                 <Box className='launch_text_box_inn' data-aos="fade-up" data-aos-delay="1000" data-aos-duration="800">
                                     <Heading as="h3">upBNB</Heading>
                                     <Text>
-                                        UpBNB is the latest launch by the Rootkit team as part of the upEcosystem, coins designed to have increased volitility against their main paired token with auto-refilling buy back vaults.
+                                        The first ERC-31337 token on Binance Smart Chain.<br/><br/>Paired against BNB; upBNB is the cornerstone vault of the Root Finance upToken ecosystem on BSC.
                                     </Text>
                                     <Box className='launch_btns'>
                                         <Button as="a" href='#'>BUY NOW</Button>

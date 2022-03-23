@@ -9,9 +9,9 @@ export default function TechnologySec() {
       <Box className="technology_main">
         <Box className='tech_bg_box'>
           <Heading as="h6" data-aos="fade" data-aos-delay="200">TECHNOLOGY</Heading>
-          <Heading as="h3" data-aos="fade" data-aos-delay="300">UpToken Tech</Heading>
-          <Text data-aos="fade" data-aos-delay="400">
-            Using our <b>ERC31337 technology</b>, we first create a price floor by building our token within certain parameters. We are then able to extract all value from beneath the price floor that would otherwise be trapped. Once the value below a price floor has served its purpose to guarantee the price, it's essentially stuck value, we are able to recover it and put it to use. We incorparate various mechanics to increase the price floor over time, including high taxes after vault buy backs and token burns.
+          <Heading as="h3" data-aos="fade" data-aos-delay="300">Jokin’, Smokin’, Midnight UpToken</Heading>
+            <Text data-aos="fade" data-aos-delay="400">
+              UpTokens are highly volatile speculative assets that allow for price exposure to a paired asset while incorporating our ERC-31337 <b>Pumpanomics</b> for maximum value extraction. Using AMM pricing mechanisms, permanently locked liquidity pools and a fixed supply currency we are able to establish a price floor (or minimum lifetime value) for our token. Our ERC-31337 “ELITE” standard then allows us to sweep the tokens under the price floor and recapture that value in our vault, allowing for the reuse of the BNB within our system multiple times. 
             </Text>
           <Box className='techno_img_prnt' data-aos="zoom-in" data-aos-delay="500">
             <Image src="img/techno_img.png" alt='' className='techno_img' />

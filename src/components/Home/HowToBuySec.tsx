@@ -13,8 +13,8 @@ export default function HowToBuySec() {
                         <Box className='howtobuy_cntnt'>
                             <Box className='htb_cntnt_box'>
                                 <Heading as="h3">How to buy</Heading>
-                                <Text>If you've invested into any of our projects in the past, you know that our MGE and the ERC-31337 "elite" wrapper are the secret sauces that set us apart. It's what separates us from any of the overhyped "RFI/Safemoon/EverRise"-type reflection tokens that have tried to imitate us since Summer 2020.</Text>
-                                <Button as="a" href="#">CHECK OUR ARTICLE HERE</Button>
+                                <Text>Head on over to PancakeSwap, connect your wallet and set your slippage to 4%</Text>
+                                <Button as="a" href="https://exchange.pancakeswap.finance/#/swap?outputCurrency=0x1759254eb142bcf0175347d5a0f3c19235538a9a" target="_blank">CHECK OUR ARTICLE HERE</Button>
                             </Box>
                         </Box>
                     </GridItem>

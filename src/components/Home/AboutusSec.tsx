@@ -11,11 +11,11 @@ export default function AboutusSec() {
                 <Box className='about_border_box'>
                     <Box className='sadow_box'>
                         <Heading as="h6">About Us</Heading>
-                        <Heading as="h3">Firmly Established Team</Heading>
+                        <Heading as="h3">Bleeding edge innovation</Heading>
                     </Box>
                     <Box className='about_text_prnt'>
                         <Text>
-                            The <b>ROOT</b> team has been releasing innovative defi products for almost 2 years, if people say its impossible, we'll give it a try. We take an entirely unique approach to mechanic design and ecosystem expansion while always trying to look at markets from new perspectives. We have two main classes of tokens, <b>UpTokens</b> (ROOTS) and <b>upOnlyTokens</b> (FLOWERS). UpTokens such as upBNB are named by the token they are paired against in the main liquidity pool. UpOnlyTokens use a fully redefined market structure based on valume and they never go down in price, price up on buy and price up on sell.
+                        As ardent pioneers in the alternative DeFi space, the Root Finance team has built countless experimental DeFi products since its inception in 2020. Two of these creations have now been developed into completely new speculative assets, <b>UpTokens</b> and <b>UpOnlyTokens</b>. UpTokens such as upBNB are named after the token they are paired against in the main liquidity pool. (BNB)
                         </Text>
                     </Box>
                     <Image src='img/upcro_ic.svg' className='upcro_ic' />
