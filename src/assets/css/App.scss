@@ -1111,10 +1111,11 @@ body{
   }
   .artcl_slider_inn{
     background: #000000;
-    box-shadow: 0px 15px 80px rgba(243, 186, 47, 0.2) !important;
+    box-shadow: 0px 13px 15px rgba(243, 186, 47, 0.2) !important;
     border-radius: 16px;
     max-width: 400px;
     margin: 0 auto;
+    overflow: hidden;
     .slider_img_0{
       -webkit-transition: 0.4s ease;
       transition: 0.4s ease;
