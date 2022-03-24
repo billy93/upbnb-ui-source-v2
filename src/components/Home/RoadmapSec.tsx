@@ -16,7 +16,7 @@ export default function RoadmapSec() {
                 <Box className='roadmap_cntnt'>
                     <Box className='road_cntnt_row road_cntnt_row_01'>
                         <Box className='road_map_img_prnt' data-aos="zoom-out" data-aos-delay="700">
-                            <Box className='box_sadow' />
+                            <Box className='box_sadow pulse' />
                             <Image src='img/road_map_img01.png' alt='' className='road_map_img0' />
                         </Box>
                         <Box className='road_text_prnt' data-aos="fade-up" data-aos-delay="500">
@@ -26,7 +26,7 @@ export default function RoadmapSec() {
                     </Box>
                     <Box className='road_cntnt_row'>
                         <Box className='road_map_img_prnt' data-aos="zoom-out" data-aos-delay="800">
-                            <Box className='box_sadow' />
+                            <Box className='box_sadow pulse' />
                             <Image src='img/road_map_img02.png' alt='' className='road_map_img0' />
                         </Box>
                         <Box className='road_text_prnt' data-aos="fade-up" data-aos-delay="600">
@@ -36,7 +36,7 @@ export default function RoadmapSec() {
                     </Box>
                     <Box className='road_cntnt_row'>
                         <Box className='road_map_img_prnt' data-aos="zoom-out" data-aos-delay="900">
-                            <Box className='box_sadow' />
+                            <Box className='box_sadow pulse' />
                             <Image src='img/road_map_img03.png' alt='' className='road_map_img0' />
                         </Box>
                         <Box className='road_text_prnt' data-aos="fade-up" data-aos-delay="700">
@@ -46,7 +46,7 @@ export default function RoadmapSec() {
                     </Box>
                     <Box className='road_cntnt_row'>
                         <Box className='road_map_img_prnt' data-aos="zoom-out" data-aos-delay="1000">
-                            <Box className='box_sadow' />
+                            <Box className='box_sadow pulse' />
                             <Image src='img/road_map_img04.png' alt='' className='road_map_img0' />
                         </Box>
                         <Box className='road_text_prnt' data-aos="fade-up" data-aos-delay="800">
@@ -54,9 +54,9 @@ export default function RoadmapSec() {
                             <Text>The dedicated marketing vault will receive 20% of all collected trade fees. After contract upgrades are complete and our automatic buybacks are in place our maketing vault will allow us to continue to ramp up upBNB’s marketing efforts.</Text>
                         </Box>
                     </Box>
-                    <Box className='road_cntnt_row'>
+                    {/* <Box className='road_cntnt_row'>
                         <Box className='road_map_img_prnt' data-aos="zoom-out" data-aos-delay="1100">
-                            <Box className='box_sadow' />
+                            <Box className='box_sadow pulse' />
                             <Image src='img/road_map_img05.png' alt='' className='road_map_img0' />
                         </Box>
                         <Box className='road_text_prnt' data-aos="fade-up" data-aos-delay="900">
@@ -66,14 +66,14 @@ export default function RoadmapSec() {
                     </Box>
                     <Box className='road_cntnt_row'>
                         <Box className='road_map_img_prnt' data-aos="zoom-out" data-aos-delay="1200">
-                            <Box className='box_sadow' />
+                            <Box className='box_sadow pulse' />
                             <Image src='img/road_map_img06.png' alt='' className='road_map_img0' />
                         </Box>
                         <Box className='road_text_prnt' data-aos="fade-up" data-aos-delay="1000">
                             <Heading as="h5">Activate New Buy-Back Vault</Heading>
                             <Text>Our newest vault, still in development, will have an auto-buy-back feature with customizable paramiters. We will be working closely with our community to choose the vaults buy-back strategies.</Text>
                         </Box>
-                    </Box>
+                    </Box> */}
                 </Box>
                 <Box className='enter_roadmap_btn_prnt'>
                     <Button as="a" href='#' className='enter_roadmap_btn'>ENTER APP</Button>

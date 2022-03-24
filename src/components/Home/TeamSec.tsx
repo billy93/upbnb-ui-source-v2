@@ -1,8 +1,21 @@
 import React from 'react'
 import { Box, Container, Heading, SimpleGrid, GridItem, Button, Text, Image } from '@chakra-ui/react'
 import { Element } from 'react-scroll';
+import { motion, useMotionValue, useTransform } from "framer-motion";
 
 export default function TeamSec() {
+    const x = useMotionValue(200);
+    const y = useMotionValue(200);
+
+    const rotateX = useTransform(y, [0, 400], [15, -15]);
+    const rotateY = useTransform(x, [0, 400], [-15, 15]);
+
+    function handleMouse(event:any) {
+        const rect = event.currentTarget.getBoundingClientRect();
+
+        x.set(event.clientX - rect.left);
+        y.set(event.clientY - rect.top);
+    }
   return (
     <>
     <Element name='Team'>
@@ -24,7 +37,22 @@ export default function TeamSec() {
                             </GridItem>
                             <GridItem colSpan={[12, 12, 12, 6]}>
                                 <Box className='team_p_prnt team_img_prnt'>
-                                    <Image src='img/team_img.png' alt='' />
+                                <motion.div onMouseMove={handleMouse}
+                                    style={{
+                                        display: "flex",
+                                        placeItems: "center",
+                                        placeContent: "center",
+                                        perspective: 400
+                                    }}>
+                                    <motion.div 
+                                    style={{
+                                        rotateX: rotateX,
+                                        rotateY: rotateY
+                                    }}>
+                                        <Image src='img/team_img.png' alt='' />
+                                    </motion.div>
+                                </motion.div>
+                                    {/* <Image src='img/team_img.png' alt='' /> */}
                                 </Box>
                             </GridItem>
                         </SimpleGrid>

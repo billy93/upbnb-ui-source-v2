@@ -1,8 +1,21 @@
 import React from 'react'
 import { Box, SimpleGrid, GridItem, Heading, Text, Button, Image } from '@chakra-ui/react'
 import { Element } from 'react-scroll';
+import { motion, useMotionValue, useTransform } from "framer-motion";
 
 export default function FirstSec() {
+    const x = useMotionValue(200);
+    const y = useMotionValue(200);
+
+    const rotateX = useTransform(y, [0, 400], [15, -15]);
+    const rotateY = useTransform(x, [0, 400], [-15, 15]);
+
+    function handleMouse(event:any) {
+        const rect = event.currentTarget.getBoundingClientRect();
+
+        x.set(event.clientX - rect.left);
+        y.set(event.clientY - rect.top);
+    }
   return (
     <>
     <Element name='Introduction'>
@@ -27,7 +40,23 @@ export default function FirstSec() {
                         <GridItem colSpan={[12, 12, 12, 6]}>
                             <Box className='launch_text_box' data-aos="zoom-in" data-aos-delay="500">
                                 <Box className='radial_gradiant_box'>
-                                    <Image src='img/upbnb_first_sec.png' className='upcro_first_img' />
+                                <motion.div onMouseMove={handleMouse}
+                                    style={{
+                                        display: "flex",
+                                        placeItems: "center",
+                                        placeContent: "center",
+                                        perspective: 400
+                                    }}>
+                                    <motion.div 
+                                    style={{
+                                        rotateX: rotateX,
+                                        rotateY: rotateY
+                                    }}>
+                                        <Image src='img/upbnb_first_sec.png' className='upcro_first_img' />
+                                    </motion.div>
+                                </motion.div>
+                                    
+                                    
                                     {/* <Image src='img/upcro_first_img.png' className='upcro_first_img' /> */}
                                 </Box>
                             </Box>

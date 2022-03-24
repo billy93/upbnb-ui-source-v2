@@ -303,7 +303,7 @@ body{
 }
 .homepage_main {
   background: url(../img/homepage_bg.jpg) no-repeat center;
-  min-height: 6992px;
+  // min-height: 6992px;
   background-size: cover;
 }
 .upcro_launch_main{
@@ -658,9 +658,15 @@ body{
     .techno_img_prnt{
       margin-top: auto;
       margin-bottom: -15px;
+      position: relative;
       // img{
       //   mix-blend-mode: multiply;
       // }
+      .circle_img {
+        position: absolute;
+        left: 41%;
+        top: 12%;
+      }
     }
     .darkbg_btn_bx{
       background: #000000;
@@ -673,6 +679,8 @@ body{
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      z-index: 1;
       a{
         width: 206px;
         height: 42px;
@@ -1107,6 +1115,14 @@ body{
     border-radius: 16px;
     max-width: 400px;
     margin: 0 auto;
+    .slider_img_0{
+      -webkit-transition: 0.4s ease;
+      transition: 0.4s ease;
+    }
+    .slider_img_0:hover{
+      -webkit-transform: scale(1.08);
+      transform: scale(1.08);
+    }
     .slider_text_box{
       padding: 20px 20px 35px 20px;
       display: flex;
@@ -1393,6 +1409,7 @@ body{
       .road_map_img0 {
         height: 180px;
         width: 180px;
+        position: relative;
       }
       .road_text_prnt{
         margin-left: 24px;
@@ -1422,6 +1439,8 @@ body{
     display: flex;
     justify-content: center;
     margin-top: 38px !important;
+    position: relative;
+    z-index: 1;
   }
   .enter_roadmap_btn{
     position: relative;
@@ -1624,7 +1643,6 @@ body{
           height: 42px;
           border: 1px solid #F3BA2F;
           position: relative;
-          z-index: 1;
           box-shadow: none !important;
           transition: all 0.2s ease-out;
           &:hover{
@@ -1736,7 +1754,8 @@ body{
   align-items: center;
   justify-content: center;
   padding: 40px 0 25px 0;
-  background: #000000;
+  background: url(../img/footer_bg.jpg) no-repeat center 0;
+  background-size: cover;
   h4{
     font-family: $f_primary;
     font-weight: 600;
@@ -3362,5 +3381,41 @@ body{
   }
   .pools_main .pool_list_box .flex_chart_header .search_bar {
     height: 40px;
+  }
+}
+.pulse {
+  
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 15px 80px rgba(243, 186, 47, 0.5);
+  animation: pulse 2s infinite;
+}
+.pulse:hover {
+  animation: none;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0px 15px 80px rgba(243, 186, 47, 0.5);
+  }
+  70% {
+      -webkit-box-shadow: 0px 15px 80px rgba(243, 186, 47, 0);
+  }
+  100% {
+      -webkit-box-shadow: 0px 15px 80px rgba(243, 186, 47, 0.5);
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0px 15px 80px rgba(243, 186, 47, 0.5);
+    box-shadow: 0px 15px 80px rgba(243, 186, 47, 0.5);
+  }
+  70% {
+      -moz-box-shadow: 0px 15px 80px rgba(243, 186, 47, 0);
+      box-shadow: 0px 15px 80px rgba(243, 186, 47, 0);
+  }
+  100% {
+      -moz-box-shadow: 0px 15px 80px rgba(243, 186, 47, 0.5);
+      box-shadow: 0px 15px 80px rgba(243, 186, 47, 0.5);
   }
 }

@@ -42,7 +42,7 @@ export default function ArticleSec() {
                         <div>
                             <Box className='artcl_slider_cntnt'>
                                 <Box className='artcl_slider_inn'>
-                                    <Image src='img/slider_img_01.png' alt='' />
+                                    <Image src='img/slider_img_01.png' className='slider_img_0' alt='' />
                                     <Box className='slider_text_box'>
                                         <Heading as="h4">UpBNB to launch on Empire Dex</Heading>
                                         <Box className='flex_box'>
@@ -56,7 +56,7 @@ export default function ArticleSec() {
                         <div>
                             <Box className='artcl_slider_cntnt'>
                                 <Box className='artcl_slider_inn'>
-                                    <Image src='img/slider_img_02.png' alt='' />
+                                    <Image src='img/slider_img_02.png' className='slider_img_0' alt='' />
                                     <Box className='slider_text_box'>
                                         <Heading as="h4">ROOT Bridge User guide</Heading>
                                         <Box className='flex_box'>
@@ -70,7 +70,7 @@ export default function ArticleSec() {
                         <div>
                             <Box className='artcl_slider_cntnt'>
                                 <Box className='artcl_slider_inn'>
-                                    <Image src='img/slider_img_03.png' alt='' />
+                                    <Image src='img/slider_img_03.png' className='slider_img_0' alt='' />
                                     <Box className='slider_text_box'>
                                         <Heading as="h4">xToken Staking and the Drip Vault</Heading>
                                         <Box className='flex_box'>
@@ -84,7 +84,7 @@ export default function ArticleSec() {
                         <div>
                             <Box className='artcl_slider_cntnt'>
                                 <Box className='artcl_slider_inn'>
-                                    <Image src='img/slider_img_01.png' alt='' />
+                                    <Image src='img/slider_img_01.png' className='slider_img_0' alt='' />
                                     <Box className='slider_text_box'>
                                         <Heading as="h4">ROOT Bridge User guide</Heading>
                                         <Box className='flex_box'>
