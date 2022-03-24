@@ -49,7 +49,19 @@ export default function TeamSec() {
                                         rotateX: rotateX,
                                         rotateY: rotateY
                                     }}>
-                                        <Image src='img/team_img.png' alt='' />
+                                        <Box className='two_img_prnt'>
+                                            <Image src='img/frame.png' alt='' className='frame_img'/>
+                                            
+                                            
+                                        </Box>
+                                    </motion.div>
+                                    <motion.div 
+                                    className='glow_img_prnt'
+                                    style={{
+                                        rotateX: rotateY,
+                                        rotateY: rotateX
+                                    }}>
+                                        <Image src='img/glow_img.png' alt='' className='glow_img' />
                                     </motion.div>
                                 </motion.div>
                                     {/* <Image src='img/team_img.png' alt='' /> */}
