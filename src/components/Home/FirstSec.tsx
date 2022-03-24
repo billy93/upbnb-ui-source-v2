@@ -39,26 +39,28 @@ export default function FirstSec() {
                         </GridItem>
                         <GridItem colSpan={[12, 12, 12, 6]}>
                             <Box className='launch_text_box' data-aos="zoom-in" data-aos-delay="500">
-                                <Box className='radial_gradiant_box'>
                                 <motion.div onMouseMove={handleMouse}
                                     style={{
                                         display: "flex",
                                         placeItems: "center",
                                         placeContent: "center",
+                                        width: "100%",
                                         perspective: 400
                                     }}>
                                     <motion.div 
                                     style={{
+                                        width: "100%",
                                         rotateX: rotateX,
                                         rotateY: rotateY
                                     }}>
-                                        <Image src='img/upbnb_first_sec.png' className='upcro_first_img' />
+                                        <Box className='radial_gradiant_box'>
+                                            <Image src='img/upbnb_first_sec.png' className='upcro_first_img' />
+                                        </Box>
                                     </motion.div>
                                 </motion.div>
                                     
                                     
                                     {/* <Image src='img/upcro_first_img.png' className='upcro_first_img' /> */}
-                                </Box>
                             </Box>
                         </GridItem>
                     </SimpleGrid>
