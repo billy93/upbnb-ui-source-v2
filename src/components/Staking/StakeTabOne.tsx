@@ -38,7 +38,7 @@ export default function StakeTabOne() {
                         <Button className='stake_full_btn'>Stake</Button>
                     </Box>
                     <Box className='stake_emp_dex_btns'>
-                        <Button disabled >Stake</Button>
+                        <Button disabled className='btn_dc'>Stake</Button>
                         <Button>EmpireDEX</Button>
                         <Button>DEXScreener</Button>
                     </Box>
