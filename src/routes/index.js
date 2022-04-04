@@ -1,4 +1,5 @@
 import { lazy } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Articles from '../pages/Articles';
 import Dashboard from '../pages/Dashboard';

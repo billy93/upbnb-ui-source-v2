@@ -7,7 +7,6 @@ import {
   CloseButton,
   Flex,
   HStack,
-  Icon,
   Drawer,
   DrawerContent,
   Text,
@@ -21,8 +20,6 @@ import {
 import {
   FiMenu,
 } from 'react-icons/fi';
-import { IconType } from 'react-icons';
-import { ReactText } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const LayoutTwo = (props:any) => {
@@ -142,41 +139,6 @@ const LayoutTwo = (props:any) => {
           </NavItem>
         ))} */}
       </Box>
-    );
-  };
-  
-  interface NavItemProps extends FlexProps {
-    icon: IconType;
-    children: ReactText;
-  }
-  const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
-    return (
-      <Link href="#" style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
-        <Flex
-          align="center"
-          p="4"
-          mx="4"
-          borderRadius="lg"
-          role="group"
-          cursor="pointer"
-          _hover={{
-            // bg: 'cyan.400',
-            color: 'white',
-          }}
-          {...rest}>
-          {icon && (
-            <Icon
-              mr="4"
-              fontSize="16"
-              _groupHover={{
-                color: 'white',
-              }}
-              as={icon}
-            />
-          )}
-          {children}
-        </Flex>
-      </Link>
     );
   };
   
