@@ -11,17 +11,17 @@ declare const window: any
 export default function SwitchNetwork() {
     const [loading, setLoading] = useState<boolean>(false)
 
-    const Cronos =
+    const BSC =
       [{
-        chainId: '0x19',
-        chainName: 'Cronos',
+        chainId: '0x38',
+        chainName: 'BSC',
         nativeCurrency: {
-          name: 'Cronos',
-          symbol: 'CRO',
+          name: 'Binance Coin',
+          symbol: 'BNB',
           decimals: 18,
         },
-        rpcUrls: ['https://evm-cronos.crypto.org'],
-        blockExplorerUrls: ['https://cronos.crypto.org/explorer/']
+        rpcUrls: ['https://bsc-dataseed.binance.org/'],
+        blockExplorerUrls: ['https://bsccan.com/']
       }]
 
     const addNetwork = (params: any) =>{
@@ -33,10 +33,10 @@ export default function SwitchNetwork() {
           .catch((error: Error) => console.log( `Error: ${error.message}`))
     }
     return (
-      <Button onClick={() => addNetwork(Cronos)} >
+      <Button onClick={() => addNetwork(BSC)} >
         {loading
             ? <><StyledLoader stroke="#FFF" />Switching Networks...</>
-            : 'Switch to Cronos'
+            : 'Switch to Binance Smart Chain'
         }
       </Button>
     )

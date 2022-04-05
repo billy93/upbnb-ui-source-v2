@@ -3,21 +3,21 @@ import { AbstractConnector } from '@web3-react/abstract-connector'
 import { injected, walletconnect } from '../connectors'
 
 export const NETWORK_LABELS: { [chainId in number]?: string } = {
-  25: 'Cronos'
+  56: 'BSC'
 }
 
-export const CronosChainId = 25
+export const BSCChainId = 56
 
 export enum Chain {
-  Cronos = 25
+  BSC = 56
 }
 
 export const chainTickers = new Map([
-  [25, "CRO"]
+  [56, "BNB"]
 ])
 
 export const chains = new Map([
-  [25, Chain.Cronos]
+  [56, Chain.BSC]
 ])
 
 export const BASE_ADDRESS = '0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23'
@@ -37,9 +37,9 @@ export const EMPIRE_FACTORY_ADDRESS = '0x06530550A48F990360DFD642d2132354A144F31
 export const EMPIRE_PAIR_ADDRESS = '0xb0a7d88202eb8bf3c43d506b712b4e474eb9cda3'
 
 export const BASE_DECIMALS = 18
-export const BASE_TICKER = "CRO"
-export const ROOTED_TICKER = "upCRO"
-export const STAKING_TICKER = "xUpCRO"
+export const BASE_TICKER = "BNB"
+export const ROOTED_TICKER = "upBNB"
+export const STAKING_TICKER = "xUpBNB"
 
 export const VAULT_START_TIME = 1643164589;
 
@@ -110,17 +110,17 @@ export const SUPPORTED_NETWORKS: {
       blockExplorerUrls: string[]
     }
   } = {   
-    [Chain.Cronos]: {
-      chainId: '0x19',
-      chainName: 'Cronos',
-      label: 'Cronos',
+    [Chain.BSC]: {
+      chainId: '0x38',
+      chainName: 'BSC',
+      label: 'BSC',
       nativeCurrency: {
-        name: 'Cronos',
-        symbol: 'CRO',
+        name: 'Binance Coin',
+        symbol: 'BNB',
         decimals: 18,
       },
-      rpcUrls: ['https://evm-cronos.crypto.org'],
-      blockExplorerUrls: ['https://cronoscan.com/']
+      rpcUrls: ['https://bsc-dataseed.binance.org/'],
+      blockExplorerUrls: ['https://bsccan.com/']
     }
   }
   

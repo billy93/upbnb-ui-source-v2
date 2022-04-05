@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 // import Sidebar from '../layouttwo/Sidebar';
+import { useWeb3React } from '@web3-react/core'
+import { Web3Provider } from '@ethersproject/providers'
+import WalletModal from "../components/ModalWallet/ModalWallet";
+import Web3Status from '../components/Web3Status'
+import { supportedChain } from '../utils'
+import { getDisplayBalance } from '../utils/formatBalance'
+import useBalance from '../hooks/useBalance'
+import { BASE_DECIMALS, BASE_TICKER } from "../constants";
 import {
   IconButton,
   Box,
@@ -21,14 +29,42 @@ import {
   FiMenu,
 } from 'react-icons/fi';
 import { NavLink } from 'react-router-dom';
+import styled from "styled-components";
 
+const AccountElement = styled.div<{ active: boolean }>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: ${({ theme, active }) => (!active ? theme.bg1 : theme.bg3)};
+  border-radius: 12px;
+  white-space: nowrap;
+  width: 100%;
+  cursor: pointer;
+  :focus {
+    border: 1px solid blue;
+  }
+  /* :hover {
+    background-color: ${({ theme, active }) => (!active ? theme.bg2 : theme.bg4)};
+  } */
+`
+const BalanceText = styled.div`
+  font-weight: 500;
+  padding: 0 0.5rem 0 0.75rem;
+  flex-shrink:0;
+  color: ${({ theme }) => theme.text2};
+`
 const LayoutTwo = (props:any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [modalOpen, setModalOpen] = useState<boolean>(false)
+  const toggleWalletModal = () => { setModalOpen(!modalOpen) }
+
     return (
       <Box minH="100vh">
         <SidebarContent
           onClose={() => onClose}
           display={{ base: 'none', xl: 'block' }}
+          modalOpen={modalOpen}
+          toggleWalletModal={toggleWalletModal}
         />
         <Drawer
           autoFocus={false}
@@ -39,11 +75,11 @@ const LayoutTwo = (props:any) => {
           onOverlayClick={onClose}
           size="full">
           <DrawerContent className='drawer_slider'>
-            <SidebarContent onClose={onClose} />
+            <SidebarContent onClose={onClose} modalOpen={modalOpen} toggleWalletModal={toggleWalletModal} />
           </DrawerContent>
         </Drawer>
         {/* mobilenav */}
-        <MobileNav onOpen={onOpen}  />
+        <MobileNav onOpen={onOpen} toggleWalletModal={toggleWalletModal}  />
         <Box ml={{ base: 0, xl: "300px" }} className="sidebar_main_prnt">
           {props.children}
         </Box>
@@ -53,9 +89,11 @@ const LayoutTwo = (props:any) => {
   
   interface SidebarProps extends BoxProps {
     onClose: () => void;
+    toggleWalletModal: () => void;
+    modalOpen: boolean;
   }
   
-  const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
+  const SidebarContent = ({ onClose,toggleWalletModal,modalOpen, ...rest }: SidebarProps) => {
     const location = useLocation();
     const { pathname } = location;
     const splitLocation = pathname.split('/');
@@ -69,6 +107,7 @@ const LayoutTwo = (props:any) => {
         {...rest}
         className="sidebar_main"
         >
+        <WalletModal walletModalOpen={modalOpen} toggleWalletModal={toggleWalletModal} />
         <Flex  alignItems="center" className='sidebar_logo_prnt'>
           <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
             <NavLink to="/">
@@ -85,7 +124,7 @@ const LayoutTwo = (props:any) => {
               className={splitLocation[1] === 'dashboard' ? 'active' : ''}
             >
               <Image src='img/sidebar_link_ic01.svg' alt="" />
-              <span>dashboard</span>
+              <span>Dashboard</span>
             </NavLink>
             <NavLink
               to='/staking'
@@ -144,9 +183,13 @@ const LayoutTwo = (props:any) => {
   
   interface MobileProps extends FlexProps {
     onOpen: () => void;
+    toggleWalletModal: () => void;
   }
-  const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+  const MobileNav = ({ onOpen, toggleWalletModal, ...rest }: MobileProps) => {
       const [scroll, setScroll] = useState(false)
+      const { account, chainId } = useWeb3React<Web3Provider>();
+      const balance = useBalance();
+      
       useEffect(() => {
         window.addEventListener("scroll", () => {
           setScroll(window.scrollY > 10)
@@ -169,8 +212,23 @@ const LayoutTwo = (props:any) => {
         />
         <HStack spacing={{ base: '0', xl: '6' }} >
           <Flex alignItems={'center'} className="sidebar_header_btns">
-            <Button as="a" href="#" >Contract Address List</Button>
-            <Button as="a" href="#" className='cnct_wallet_btn'>Connect Wallet</Button>
+            {
+              !!account ? (
+                <AccountElement active={!!account} style={{ pointerEvents: 'auto' }}>
+              {chainId && supportedChain(chainId!) && account && balance && (
+                <BalanceText>
+                  {getDisplayBalance(balance!, 2, BASE_DECIMALS)} {BASE_TICKER}
+                </BalanceText>
+              )}
+              <Web3Status />
+            </AccountElement>
+              ) : (
+                  <>
+                  <Button as="a" href="#" >Contract Address List</Button>
+                  <Button as="a" href="#" onClick={toggleWalletModal} className='cnct_wallet_btn'>Connect Wallet</Button>
+                  </>
+              )
+            }
           </Flex>
         </HStack>
       </Flex>

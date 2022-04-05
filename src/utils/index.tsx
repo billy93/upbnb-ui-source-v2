@@ -1,5 +1,5 @@
 import { getAddress } from '@ethersproject/address'
-import { CronosChainId } from '../constants'
+import { BSCChainId } from '../constants'
 
 // returns the checksummed address if the address is valid, otherwise returns false
 export function isAddress(value: any): string | false {
@@ -20,7 +20,7 @@ export function shortenAddress(address: string, chars = 4): string {
 }
 
 const ETHERSCAN_PREFIXES: { [chainId in number]: string } = {
-  25: 'cronoscan.com'
+  56: 'bscscan.com'
 }
 
 export function getEtherscanLink(
@@ -47,7 +47,7 @@ export function getEtherscanLink(
   }
 }
 
-export const getEtherscanLabel = (chainId: number) => "View on Cronoscan"
+export const getEtherscanLabel = (chainId: number) => "View on BSCScan"
 
 export function escapeRegExp(string: string): string {
   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') // $& means the whole matched string
@@ -60,5 +60,5 @@ export const getMaxAmount = (balance: number) => {
 }
 
 export const supportedChain = (chainId?: number) => {
-  return chainId && chainId === CronosChainId
+  return chainId && chainId === BSCChainId
 }

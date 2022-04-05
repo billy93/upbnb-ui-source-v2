@@ -10,7 +10,7 @@ const NETWORK_URL = process.env.REACT_APP_NETWORK_URL!
 export const NETWORK_CHAIN_ID: number = parseInt(process.env.REACT_APP_CHAIN_ID ?? '25');
 
 export const NETWORK_URLS: { [key in number]: string } = {
-  25:"https://cronos.nodes.cybercorey.net"
+  56:"https://bsc-dataseed.binance.org/"
 }
 
 export const network = new NetworkConnector({
@@ -22,7 +22,7 @@ export function getNetworkLibrary(): Web3Provider {
   return (networkLibrary = networkLibrary ?? new Web3Provider(network.provider as any))
 }
 
-const supportedChainIds = [25]
+const supportedChainIds = [56]
 
 export const injected = new InjectedConnector({
   supportedChainIds: supportedChainIds
@@ -39,8 +39,8 @@ export const walletconnect = new WalletConnectConnector({
 })
 
 export const defiWalletConnect = new DeFiWeb3Connector({
-  supportedChainIds: [25],
-  rpc: { 25: NETWORK_URLS[25] },
+  supportedChainIds: [56],
+  rpc: { 56: NETWORK_URLS[56] },
   pollingInterval: 15000,
 })
 

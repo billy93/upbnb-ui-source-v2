@@ -7,12 +7,12 @@ export interface IAppContextInterface {
 }
 
 const AppContext = createContext<IAppContextInterface>({
-    chain: Chain.Cronos,
+    chain: Chain.BSC,
     setChain: (chain: Chain) => {}
 });
 
 const AppContextProvider = ({ children }: { children: ReactNode }) => {
-    const [chain, setChain] = useState<Chain>(Chain.Cronos); 
+    const [chain, setChain] = useState<Chain>(Chain.BSC); 
 
     return (
         <AppContext.Provider value={{
