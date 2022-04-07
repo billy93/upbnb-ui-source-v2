@@ -81,7 +81,7 @@ export default function Dashboard() {
                     {/* <Image src='img/price_chart_img.png' alt='' /> */}
 
                     <ChartCard
-                      variant="token"
+                      variant="price"
                       chartData={chartData || []}                      
                       tokenPriceData={priceData || []}
                     /> 
@@ -89,7 +89,16 @@ export default function Dashboard() {
                 </GridItem>
                 <GridItem colSpan={[12, 12, 12, 6]}>
                   <Box className='dashboard_chart_box price_chart_main'>
-                    <Image src='img/tvl_chrt_img.png' alt='' />
+                    <Box className='flex_chart_header flex_chart_header_last'>
+                      <Heading as="h3">Liquidity</Heading>
+                    </Box>
+                    {/* <Image src='img/tvl_chrt_img.png' alt='' /> */}
+
+                    <ChartCard
+                      variant="liquidity"
+                      chartData={chartData || []}                      
+                      tokenPriceData={priceData || []}
+                    /> 
                   </Box>
                 </GridItem>
                 <GridItem colSpan={[12, 12, 12, 6]}>

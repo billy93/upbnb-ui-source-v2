@@ -1,10 +1,12 @@
 import { Skeleton, Text } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import { fromUnixTime } from 'date-fns'
+import React, { useMemo, useState } from 'react'
 import { Box, Card, Flex } from 'rebass'
 // import { formatAmount } from '../../utils/formatInfoNumbers'
 import { ChartEntry, PriceChartEntry } from '../../state/info/types'
 import { formatAmount } from '../../utils/formatInfoNumbers'
 import CandleChart from '../CandleChart'
+import LineChart from '../LineChart'
 // import CandleChart from '../CandleChart'
 
 
@@ -15,7 +17,7 @@ import CandleChart from '../CandleChart'
 // }
 
 interface ChartCardProps {
-  variant: 'pool' | 'token'
+  variant: 'price' | 'liquidity'
   chartData: ChartEntry[]
   tokenPriceData?: PriceChartEntry[]
 }
@@ -23,23 +25,24 @@ interface ChartCardProps {
 const ChartCard: React.FC<ChartCardProps> = ({ variant, chartData, tokenPriceData }) => {
   const [hoverValue, setHoverValue] = useState<number | undefined>()
   const [hoverDate, setHoverDate] = useState<string | undefined>()
+
   // const {
   //   t,
   //   currentLanguage: { locale },
   // } = useTranslation()
   const currentDate = new Date().toLocaleString('en-US', { month: 'short', year: 'numeric', day: 'numeric' })
 
-  // const formattedTvlData = useMemo(() => {
-  //   if (chartData) {
-  //     return chartData.map((day) => {
-  //       return {
-  //         time: fromUnixTime(day.date),
-  //         value: day.liquidityUSD,
-  //       }
-  //     })
-  //   }
-  //   return []
-  // }, [chartData])
+  const formattedTvlData = useMemo(() => {
+    if (chartData) {
+      return chartData.map((day) => {
+        return {
+          time: fromUnixTime(day.date),
+          value: day.liquidityUSD,
+        }
+      })
+    }
+    return []
+  }, [chartData])
   // const formattedVolumeData = useMemo(() => {
   //   if (chartData) {
   //     return chartData.map((day) => {
@@ -56,7 +59,11 @@ const ChartCard: React.FC<ChartCardProps> = ({ variant, chartData, tokenPriceDat
     let valueToDisplay = null
     if (hoverValue) {
       valueToDisplay = formatAmount(hoverValue)
-    } else {
+    } 
+    else if (variant === "liquidity" && formattedTvlData.length > 0) {
+      valueToDisplay = formatAmount(formattedTvlData[formattedTvlData.length - 1]?.value)
+    }
+    else {
       valueToDisplay = formatAmount(0)
       // if(tokenData != null){
       //   valueToDisplay = formatAmount(tokenData.priceUSD)
@@ -82,7 +89,11 @@ const ChartCard: React.FC<ChartCardProps> = ({ variant, chartData, tokenPriceDat
       </Flex>
 
       <Box px="24px">
+          {variant === "price" ?
           <CandleChart data={tokenPriceData || []} setValue={setHoverValue} setLabel={setHoverDate} /> 
+          :
+          <LineChart data={formattedTvlData} setHoverValue={setHoverValue} setHoverDate={setHoverDate} />
+          }
       </Box>
     </Card>
   )
