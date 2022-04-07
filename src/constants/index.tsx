@@ -20,6 +20,8 @@ export const chains = new Map([
   [56, Chain.BSC]
 ])
 
+export const INFO_CLIENT = 'https://bsc.streamingfast.io/subgraphs/name/pancakeswap/exchange-v2'
+export const NEXT_PUBLIC_BIT_QUERY_ENDPOINT = "https://graphql.bitquery.io"
 export const BASE_ADDRESS = '0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23'
 export const ROOTED_ADDRESS = '0xb062084aFfDf75b9b494D56B8417F1B981Df790f'
 export const STAKING_ADDRESS = '0x78Bf858Ef5f5C286cb8CAaa145D7376d7a96d90e'
