@@ -30,9 +30,9 @@ export default function FirstSec() {
                                         The first ERC-31337 token on Binance Smart Chain.<br/><br/>Paired against BNB; upBNB is the cornerstone vault of the Root Finance upToken ecosystem on BSC.
                                     </Text>
                                     <Box className='launch_btns'>
-                                        <Button as="a" href='#'>BUY NOW</Button>
-                                        <Button as="a" href='#' className='entr_a'>ENTER APP</Button>
-                                        <Button as="a" href='#'>CHART</Button>
+                                        <Button as="a" href='https://pancakeswap.finance/swap?outputCurrency=0x1759254EB142bcF0175347D5A0f3c19235538a9A'>BUY NOW</Button>
+                                        <Button as="a" href='/dashboard' className='entr_a'>ENTER APP</Button>
+                                        <Button as="a" href='https://poocoin.app/tokens/0x1759254eb142bcf0175347d5a0f3c19235538a9a'>CHART</Button>
                                     </Box>
                                 </Box>
                             </Box>
