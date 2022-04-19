@@ -2,6 +2,15 @@ import { useEffect, useState } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import { injected } from '../connectors'
 import { isMobile } from 'react-device-detect'
+import { Web3ReactContextInterface } from '@web3-react/core/dist/types'
+import { Web3Provider } from '@ethersproject/providers'
+import { ChainId } from '../sdk'
+
+export function useActiveWeb3React(): Web3ReactContextInterface<Web3Provider> & { chainId?: ChainId } {
+  const context = useWeb3React<Web3Provider>()
+  // const contextNetwork = useWeb3ReactCore<Web3Provider>(NetworkContextName)
+  return context.active ? context : context
+}
 
 export function useEagerConnect() {
     const { activate, active } = useWeb3React()

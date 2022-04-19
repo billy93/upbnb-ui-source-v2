@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Option from './Option'
 import { SUPPORTED_WALLETS } from '../../constants'
 import { injected } from '../../connectors'
-import Loader from '../Loader/loader'
+import Loader from '../Loader'
 import { darken } from 'polished'
 const PendingSection = styled.div`
   ${({ theme }) => theme.flexColumnNoWrap};

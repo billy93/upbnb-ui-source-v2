@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Button as RebassButton, ButtonProps } from 'rebass/styled-components'
 import { darken, lighten, transparentize } from 'polished'
 import { AutoRow } from '../Row'
-import Loader from '../Loader/loader'
+import Loader from '../Loader'
 
 const Base = styled(RebassButton) <{
   padding?: string
@@ -202,4 +202,85 @@ export const PendingContent = ({text} : {text:string}) =>{
       <Loader stroke="#6C7284" />
     </AutoRow>
   )
+}
+
+export const ButtonEmpty = styled(Base)`
+  background-color: transparent;
+  color: ${({ theme }) => theme.text2};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:focus {
+    text-decoration: underline;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+  &:disabled {
+    opacity: 50%;
+    cursor: auto;
+  }
+`
+
+const ButtonErrorStyle = styled(Base)`
+  background-color: ${({ theme }) => theme.red1};
+  border: 1px solid ${({ theme }) => theme.red1};
+
+  &:focus {
+    box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.05, theme.red1)};
+    background-color: ${({ theme }) => darken(0.05, theme.red1)};
+  }
+  &:hover {
+    background-color: ${({ theme }) => darken(0.05, theme.red1)};
+  }
+  &:active {
+    box-shadow: 0 0 0 1pt ${({ theme }) => darken(0.1, theme.red1)};
+    background-color: ${({ theme }) => darken(0.1, theme.red1)};
+  }
+  &:disabled {
+    opacity: 50%;
+    cursor: auto;
+    box-shadow: none;
+    background-color: ${({ theme }) => theme.red1};
+    border: 1px solid ${({ theme }) => theme.red1};
+  }
+`
+
+export const ButtonLight = styled(Base)`
+  background-color: ${({ theme }) => theme.primary5};
+  color: ${({ theme }) => theme.primaryText1};
+  font-size: 16px;
+  font-weight: 500;
+  &:focus {
+    box-shadow: 0 0 0 1pt ${({ theme, disabled }) => !disabled && darken(0.03, theme.primary5)};
+    background-color: ${({ theme, disabled }) => !disabled && darken(0.03, theme.primary5)};
+  }
+  &:hover {
+    background-color: ${({ theme, disabled }) => !disabled && darken(0.03, theme.primary5)};
+  }
+  &:active {
+    box-shadow: 0 0 0 1pt ${({ theme, disabled }) => !disabled && darken(0.05, theme.primary5)};
+    background-color: ${({ theme, disabled }) => !disabled && darken(0.05, theme.primary5)};
+  }
+  :disabled {
+    opacity: 0.4;
+    :hover {
+      cursor: auto;
+      background-color: ${({ theme }) => theme.primary5};
+      box-shadow: none;
+      border: 1px solid transparent;
+      outline: none;
+    }
+  }
+`
+export function ButtonError({ error, ...rest }: { error?: boolean } & ButtonProps) {
+  if (error) {
+    return <ButtonErrorStyle {...rest} />
+  } else {
+    return <ButtonPrimary {...rest} />
+  }
 }

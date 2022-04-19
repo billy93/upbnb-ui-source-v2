@@ -1,0 +1,66 @@
+import { createReducer } from '@reduxjs/toolkit'
+import { Field, Metadata, resetMintState, typeInput, metadataInput } from './actions'
+
+export interface MintState {
+  readonly independentField: Field
+  readonly typedValue: string
+  readonly otherTypedValue: string // for the case when there's no liquidity
+  readonly SWEEPABLE: number
+  readonly locktime: number
+}
+
+const initialState: MintState = {
+  independentField: Field.CURRENCY_A,
+  typedValue: '',
+  otherTypedValue: '',
+  SWEEPABLE: 0,
+  locktime: 0
+}
+
+export default createReducer<MintState>(initialState, builder =>
+  builder
+    .addCase(resetMintState, () => initialState)
+    .addCase(typeInput, (state, { payload: { field, typedValue, noLiquidity } }) => {
+      if (noLiquidity) {
+        // they're typing into the field they've last typed in
+        if (field === state.independentField) {
+          return {
+            ...state,
+            independentField: field,
+            typedValue
+          }
+        }
+        // they're typing into a new field, store the other value
+        else {
+          return {
+            ...state,
+            independentField: field,
+            typedValue,
+            otherTypedValue: state.typedValue
+          }
+        }
+      } else {
+        return {
+          ...state,
+          independentField: field,
+          typedValue,
+          otherTypedValue: ''
+        }
+      }
+    })
+    .addCase(metadataInput, (state, { payload: { field, typedValue } }) => {
+      switch (field) {
+        case Metadata.SWEEPABLE:
+          return {
+            ...state,
+            SWEEPABLE: typedValue
+          }
+      
+          case Metadata.LOCKTIME:
+            return {
+              ...state,
+              locktime: typedValue
+            }
+      }
+    })
+)

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import { Button } from '@chakra-ui/react';
-import Loader from '../Loader/loader'
+import Loader from '../Loader'
 
 const StyledLoader = styled(Loader)`
   margin-right: 1rem;
