@@ -132,6 +132,119 @@ export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 
 export { PRELOADED_PROPOSALS } from './proposals'
 
+
+
+// a list of tokens by chain
+// type ChainTokenList = {
+//   readonly [chainId in ChainId]: Token[]
+// }
+
+// // used to construct intermediary pairs for trading
+// export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
+//   [ChainId.BSC]: [
+//     // mainnetTokens.wbnb,
+//     // mainnetTokens.cake,
+//     // mainnetTokens.busd,
+//     // mainnetTokens.usdt,
+//     // mainnetTokens.btcb,
+//     // mainnetTokens.ust,
+//     // mainnetTokens.eth,
+//     // mainnetTokens.usdc,
+//   ]
+// }
+
+// /**
+//  * Addittional bases for specific tokens
+//  * @example { [WBTC.address]: [renBTC], [renBTC.address]: [WBTC] }
+//  */
+// export const ADDITIONAL_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: Token[] } } = {
+//   [ChainId.BSC]: {},
+// }
+
+// /**
+//  * Some tokens can only be swapped via certain pairs, so we override the list of bases that are considered for these
+//  * tokens.
+//  * @example [AMPL.address]: [DAI, WETH[ChainId.MAINNET]]
+//  */
+// export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: Token[] } } = {
+//   [ChainId.BSC]: {},
+// }
+
+// // used for display in the default list when adding liquidity
+// export const SUGGESTED_BASES: ChainTokenList = {
+//   [ChainId.BSC]: [
+//     // mainnetTokens.busd, mainnetTokens.cake, mainnetTokens.btcb
+//   ]
+// }
+
+// // used to construct the list of all pairs we consider by default in the frontend
+// export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
+//   [ChainId.BSC]: [
+//     // mainnetTokens.wbnb, mainnetTokens.dai, mainnetTokens.busd, mainnetTokens.usdt
+//   ]
+// }
+
+// export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
+//   [ChainId.BSC]: [
+//     // [mainnetTokens.cake, mainnetTokens.wbnb],
+//     // [mainnetTokens.busd, mainnetTokens.usdt],
+//     // [mainnetTokens.dai, mainnetTokens.usdt],
+//   ],
+// }
+
+// // export const NetworkContextName = 'NETWORK'
+
+// // default allowed slippage, in bips
+// export const INITIAL_ALLOWED_SLIPPAGE = 50
+// // 20 minutes, denominated in seconds
+// export const DEFAULT_DEADLINE_FROM_NOW = 60 * 20
+
+// export const BIG_INT_ZERO = JSBI.BigInt(0)
+
+// // one basis point
+// export const ONE_BIPS = new Percent(JSBI.BigInt(1), JSBI.BigInt(10000))
+// export const BIPS_BASE = JSBI.BigInt(10000)
+// // used for warning states
+// export const ALLOWED_PRICE_IMPACT_LOW: Percent = new Percent(JSBI.BigInt(100), BIPS_BASE) // 1%
+// export const ALLOWED_PRICE_IMPACT_MEDIUM: Percent = new Percent(JSBI.BigInt(300), BIPS_BASE) // 3%
+// export const ALLOWED_PRICE_IMPACT_HIGH: Percent = new Percent(JSBI.BigInt(500), BIPS_BASE) // 5%
+// // if the price slippage exceeds this number, force the user to type 'confirm' to execute
+// export const PRICE_IMPACT_WITHOUT_FEE_CONFIRM_MIN: Percent = new Percent(JSBI.BigInt(1000), BIPS_BASE) // 10%
+// // for non expert mode disable swaps above this
+// export const BLOCKED_PRICE_IMPACT_NON_EXPERT: Percent = new Percent(JSBI.BigInt(1500), BIPS_BASE) // 15%
+
+// // used to ensure the user doesn't send so much BNB so they end up with <.01
+// export const MIN_BNB: JSBI = JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(16)) // .01 BNB
+// export const BETTER_TRADE_LESS_HOPS_THRESHOLD = new Percent(JSBI.BigInt(50), JSBI.BigInt(10000))
+
+// export const ZERO_PERCENT = new Percent('0')
+// export const ONE_HUNDRED_PERCENT = new Percent('1')
+
+// // SDN OFAC addresses
+// export const BLOCKED_ADDRESSES: string[] = [
+//   '0x7F367cC41522cE07553e823bf3be79A889DEbe1B',
+//   '0xd882cFc20F52f2599D84b8e8D58C7FB62cfE344b',
+//   '0x901bb9583b24D97e995513C6778dc6888AB6870e',
+//   '0xA7e5d5A720f06526557c513402f2e6B5fA20b008',
+//   '0x8576aCC5C05D6Ce88f4e49bf65BdF0C62F91353C',
+// ]
+
+// // export { default as farmsConfig } from './farms'
+// // export { default as poolsConfig } from './pools'
+// // export { default as ifosConfig } from './ifo'
+
+// export const FAST_INTERVAL = 10000
+// export const SLOW_INTERVAL = 60000
+
+// // Gelato uses this address to define a native currency in all chains
+// export const GELATO_NATIVE = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
+// // Handler string is passed to Gelato to use PCS router
+// export const GELATO_HANDLER = 'pancakeswap'
+// // export const GENERIC_GAS_LIMIT_ORDER_EXECUTION = BigNumber.from(500000)
+
+// export const EXCHANGE_DOCS_URLS = 'https://docs.pancakeswap.finance/products/pancakeswap-exchange'
+// export const LIMIT_ORDERS_DOCS_URL = 'https://docs.pancakeswap.finance/products/pancakeswap-exchange/limit-orders'
+
 // a list of tokens by chain
 type ChainTokenList = {
   readonly [chainId in ChainId]: Token[]
@@ -170,7 +283,128 @@ const WETH_ONLY: ChainTokenList = {
   [ChainId.BSC]: [WETH[ChainId.BSC]]
 }
 
+interface TokenList {
+  [symbol: string]: Token
+}
 
+const defineTokens = <T extends TokenList>(t: T) => t
+
+export const mainnetTokens = defineTokens({
+  wbnb: new Token(
+    ChainId.BSC,
+    '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+    18,
+    'WBNB',
+    'Wrapped BNB'
+  ),
+  // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
+  bnb: new Token(ChainId.BSC, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB'),
+  cake: new Token(
+    ChainId.BSC,
+    '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+    18,
+    'CAKE',
+    'PancakeSwap Token'
+  ),
+  busd: new Token(
+    ChainId.BSC,
+    '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
+    18,
+    'BUSD',
+    'Binance USD'
+  ),
+  usdt: new Token(
+    ChainId.BSC,
+    '0x55d398326f99059fF775485246999027B3197955',
+    18,
+    'USDT',
+    'Tether USD'
+  ),
+  btcb: new Token(
+    ChainId.BSC,
+    '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
+    18,
+    'BTCB',
+    'Binance BTC'
+  ),
+  ust: new Token(
+    ChainId.BSC,
+    '0x23396cF899Ca06c4472205fC903bDB4de249D6fC',
+    18,
+    'UST',
+    'Wrapped UST Token'
+  ),
+  eth: new Token(
+    ChainId.BSC,
+    '0x2170Ed0880ac9A755fd29B2688956BD959F933F8',
+    18,
+    'ETH',
+    'Binance-Peg Ethereum Token'
+  ),
+  usdc: new Token(
+    ChainId.BSC,
+    '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
+    18,
+    'USDC',
+    'Binance-Peg USD Coin'
+  ),
+  dai: new Token(
+    ChainId.BSC,
+    '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
+    18,
+    'DAI',
+    'Dai Stablecoin'
+  )
+  })
+// used to construct intermediary pairs for trading
+export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
+  [ChainId.BSC]: [
+    mainnetTokens.wbnb,
+    mainnetTokens.cake,
+    mainnetTokens.busd,
+    mainnetTokens.usdt,
+    mainnetTokens.btcb,
+    mainnetTokens.ust,
+    mainnetTokens.eth,
+    mainnetTokens.usdc,
+  ]
+}
+
+/**
+ * Addittional bases for specific tokens
+ * @example { [WBTC.address]: [renBTC], [renBTC.address]: [WBTC] }
+ */
+export const ADDITIONAL_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: Token[] } } = {
+  [ChainId.BSC]: {},
+}
+
+/**
+ * Some tokens can only be swapped via certain pairs, so we override the list of bases that are considered for these
+ * tokens.
+ * @example [AMPL.address]: [DAI, WETH[ChainId.MAINNET]]
+ */
+export const CUSTOM_BASES: { [chainId in ChainId]?: { [tokenAddress: string]: Token[] } } = {
+  [ChainId.BSC]: {},
+}
+
+// used for display in the default list when adding liquidity
+export const SUGGESTED_BASES: ChainTokenList = {
+  [ChainId.BSC]: [mainnetTokens.busd, mainnetTokens.cake, mainnetTokens.btcb],
+}
+
+// used to construct the list of all pairs we consider by default in the frontend
+export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
+  [ChainId.BSC]: [mainnetTokens.wbnb, mainnetTokens.dai, mainnetTokens.busd, mainnetTokens.usdt],
+}
+
+export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
+  [ChainId.BSC]: [
+    [mainnetTokens.cake, mainnetTokens.wbnb],
+    [mainnetTokens.busd, mainnetTokens.usdt],
+    [mainnetTokens.dai, mainnetTokens.usdt],
+  ],
+}
+/*
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
@@ -197,6 +431,7 @@ export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
 }
+*/
 
 export interface WalletInfo {
   connector?: AbstractConnector

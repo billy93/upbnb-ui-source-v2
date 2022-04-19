@@ -6,7 +6,9 @@ import { AddressZero } from '@ethersproject/constants'
 import { Contract } from '@ethersproject/contracts'
 import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import { BigNumber } from '@ethersproject/bignumber'
-import EmpireRouterABI from '../constants/abis/router.json'
+// import EmpireRouterABI from '../constants/abis/router.json'
+import IPancakeRouter02ABI from '../constants/abis/IPancakeRouter02.json'
+
 // returns the checksummed address if the address is valid, otherwise returns false
 export function isAddress(value: any): string | false {
   try {
@@ -128,6 +130,5 @@ export function calculateGasMargin(value: BigNumber): BigNumber {
 
 // account is optional
 export function getRouterContract(_: number, library: Web3Provider, account?: string): Contract {
-  return getContract(ROUTER_ADDRESS, EmpireRouterABI, library, account)
+  return getContract(ROUTER_ADDRESS, IPancakeRouter02ABI, library, account)
 }
-

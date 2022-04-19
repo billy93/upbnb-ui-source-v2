@@ -134,7 +134,6 @@ export default function Swap() {
       currencies,
       inputError: swapInputError
     } = useDerivedSwapInfo()
-  
     const { wrapType, execute: onWrap, inputError: wrapInputError } = useWrapCallback(
       currencies[Field.INPUT],
       currencies[Field.OUTPUT],
@@ -223,7 +222,6 @@ export default function Swap() {
   
     // the callback to execute the swap
     const { callback: swapCallback, error: swapCallbackError } = useSwapCallback(trade, allowedSlippage, recipient)
-  
     const { priceImpactWithoutFee } = computeTradePriceBreakdown(trade)
   
     const [singleHopOnly] = useUserSingleHopOnly()
@@ -327,10 +325,24 @@ export default function Swap() {
   return (
     <>
         <LayoutTwo>
+        <ConfirmSwapModal
+            isOpen={showConfirm}
+            trade={trade}
+            originalTrade={tradeToConfirm}
+            onAcceptChanges={handleAcceptChanges}
+            attemptingTxn={attemptingTxn}
+            txHash={txHash}
+            recipient={recipient}
+            allowedSlippage={allowedSlippage}
+            onConfirm={handleSwap}
+            swapErrorMessage={swapErrorMessage}
+            onDismiss={handleConfirmDismiss}
+          />
             <Box className='swap_main'>
                 <Container maxW="container.xl">
                     <Box className='swap_border_Box'>
                         <Heading as="h4">Swap</Heading>
+                        <SwapHeader />
                         <Box className='spwa_cntnt_dark_box'>
                             <Box className='swap_upcro_brdr_bx'>
                               <CurrencyInputPanel
@@ -369,7 +381,9 @@ export default function Swap() {
                                     <Text>Balance: 0.00</Text>
                                 </Box> */}
                             </Box>
+                            
                             <Button className='swap_center_btn'><Image src='img/down_arw_ic.svg' /></Button>
+                            
                             <Box className='swap_upcro_brdr_bx swap_btc_brdr_bx'>
 
                             <CurrencyInputPanel
@@ -553,6 +567,9 @@ export default function Swap() {
                               </Column>
                             )}
                             {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
+                            {/* {swapCallbackError ? <SwapCallbackError error={swapCallbackError} /> : null} */}
+
+                            {/* {swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null} */}
                           </BottomGrouping>
                         </Box>
                     </Box>
