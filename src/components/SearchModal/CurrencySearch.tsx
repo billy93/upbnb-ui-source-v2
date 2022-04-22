@@ -161,19 +161,19 @@ export function CurrencySearch({
   const filteredInactiveTokens: Token[] = useSortedTokensByQuery(inactiveTokens, debouncedQuery)
 
   return (
-    <ContentWrapper>
-      <PaddedColumn gap="16px">
-        <RowBetween>
-          <Text fontWeight={500} fontSize={16}>
+    <ContentWrapper className='select_tocn_modal'>
+      <PaddedColumn className='select_tocn_modal_inn' >
+        <RowBetween className='select_text_prnt'>
+          <Text className='select_text'>
             Select a token
           </Text>
-          <CloseIcon onClick={onDismiss} />
+          <CloseIcon onClick={onDismiss} className="close_btn" />
         </RowBetween>
-        <Row>
+        <Row className='inpt_prnt_prnt'>
           <SearchInput
             type="text"
             id="token-search-input"
-            placeholder={t('tokenSearchPlaceholder')}
+            placeholder={t('Search name or paste address')}
             autoComplete="off"
             value={searchQuery}
             ref={inputRef as RefObject<HTMLInputElement>}
@@ -187,12 +187,12 @@ export function CurrencySearch({
       </PaddedColumn>
       <Separator />
       {searchToken && !searchTokenIsAdded ? (
-        <Column style={{ padding: '20px 0', height: '100%' }}>
+        <Column style={{ padding: '20px 0', height: '100%' }} className="tocn_list_prnt">
           <ImportRow token={searchToken} showImportView={showImportView} setImportToken={setImportToken} />
         </Column>
       ) : filteredSortedTokens?.length > 0 || filteredInactiveTokens?.length > 0 ? (
         <div style={{ flex: '1' }}>
-          <AutoSizer disableWidth>
+          <AutoSizer disableWidth className='currency_list_prnt'>
             {({ height }) => (
               <CurrencyList
                 height={height}
@@ -218,8 +218,8 @@ export function CurrencySearch({
           </TYPE.main>
         </Column>
       )}
-      <Footer>
-        <Row justify="center">
+      <Footer className='manage_btn_prnt'>
+        <Row justify="center" className='manage_btn'>
           <ButtonText onClick={showManageView} color={theme.blue1} className="list-token-manage-button">
             <RowFixed>
               <IconWrapper size="16px" marginRight="6px">

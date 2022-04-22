@@ -16,10 +16,15 @@ import { TYPE } from '../../theme'
 import { ButtonError } from '../Button'
 import { AutoColumn } from '../Column'
 import Modal from '../Modal'
-import QuestionHelper from '../QuestionHelper'
+// import QuestionHelper from '../QuestionHelper'
 import { RowBetween, RowFixed } from '../Row'
 import Toggle from '../Toggle'
 import TransactionSettings from '../TransactionSettings'
+import {
+  Box,
+  Button,
+  Image
+} from '@chakra-ui/react'
 
 const StyledMenuIcon = styled(Settings)`
   height: 20px;
@@ -138,10 +143,9 @@ export default function SettingsTab() {
   const [showConfirmation, setShowConfirmation] = useState(false)
 
   useOnClickOutside(node, open ? toggle : undefined)
-
   return (
     // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/30451
-    <StyledMenu ref={node as any}>
+    <StyledMenu ref={node as any} className="setting_btn">
       <Modal isOpen={showConfirmation} onDismiss={() => setShowConfirmation(false)} maxHeight={100}>
         <ModalContentWrapper>
           <AutoColumn gap="lg">
@@ -190,64 +194,67 @@ export default function SettingsTab() {
         ) : null}
       </StyledMenuButton>
       {open && (
-        <MenuFlyout>
-          <AutoColumn gap="md" style={{ padding: '1rem' }}>
-            <Text fontWeight={600} fontSize={14}>
-              Transaction Settings
-            </Text>
-            <TransactionSettings
-              rawSlippage={userSlippageTolerance}
-              setRawSlippage={setUserslippageTolerance}
-              deadline={ttl}
-              setDeadline={setTtl}
-            />
-            <Text fontWeight={600} fontSize={14}>
-              Interface Settings
-            </Text>
-            <RowBetween>
-              <RowFixed>
-                <TYPE.black fontWeight={400} fontSize={14} color={theme.text2}>
-                  Toggle Expert Mode
-                </TYPE.black>
-                <QuestionHelper text="Bypasses confirmation modals and allows high slippage trades. Use at your own risk." />
-              </RowFixed>
-              <Toggle
-                id="toggle-expert-mode-button"
-                isActive={expertMode}
-                toggle={
-                  expertMode
-                    ? () => {
-                        toggleExpertMode()
-                        setShowConfirmation(false)
-                      }
-                    : () => {
-                        toggle()
-                        setShowConfirmation(true)
-                      }
-                }
+        <Box className='overlay_box'>
+          <MenuFlyout className='trasaction_stting_modal'>
+            <Button onClick={toggle} className='close_btn'><Image src='/img/close_icn.svg' /></Button>
+            <AutoColumn gap="md">
+              <Text className='transctn_header'>
+                Transaction Settings
+              </Text>
+              <TransactionSettings
+                rawSlippage={userSlippageTolerance}
+                setRawSlippage={setUserslippageTolerance}
+                deadline={ttl}
+                setDeadline={setTtl}
               />
-            </RowBetween>
-            <RowBetween>
-              <RowFixed>
-                <TYPE.black fontWeight={400} fontSize={14} color={theme.text2}>
-                  Disable Multihops
-                </TYPE.black>
-                <QuestionHelper text="Restricts swaps to direct pairs only." />
-              </RowFixed>
-              <Toggle
-                id="toggle-disable-multihop-button"
-                isActive={singleHopOnly}
-                toggle={() => {
-                  ReactGA.event({
-                    category: 'Routing',
-                    action: singleHopOnly ? 'disable single hop' : 'enable single hop'
-                  })
-                  setSingleHopOnly(!singleHopOnly)
-                }}
-              />
-            </RowBetween>
-          </AutoColumn>
-        </MenuFlyout>
+              <Text className='intrfc_text'>
+                Interface Settings
+              </Text>
+              <RowBetween className='switch_box_prnt'>
+                <RowFixed className='mode_text_prnt'>
+                  <TYPE.black className='mode_text'>
+                    Toggle Expert Mode
+                  </TYPE.black>
+                  {/* <QuestionHelper text="Bypasses confirmation modals and allows high slippage trades. Use at your own risk." /> */}
+                </RowFixed>
+                <Toggle
+                  id="toggle-expert-mode-button"
+                  isActive={expertMode}
+                  toggle={
+                    expertMode
+                      ? () => {
+                          toggleExpertMode()
+                          setShowConfirmation(false)
+                        }
+                      : () => {
+                          toggle()
+                          setShowConfirmation(true)
+                        }
+                  }
+                />
+              </RowBetween>
+              <RowBetween className='switch_box_prnt'>
+                <RowFixed className='mode_text_prnt'>
+                  <TYPE.black className='mode_text'>
+                    Disable Multihops
+                  </TYPE.black>
+                  {/* <QuestionHelper text="Restricts swaps to direct pairs only." /> */}
+                </RowFixed>
+                <Toggle
+                  id="toggle-disable-multihop-button"
+                  isActive={singleHopOnly}
+                  toggle={() => {
+                    ReactGA.event({
+                      category: 'Routing',
+                      action: singleHopOnly ? 'disable single hop' : 'enable single hop'
+                    })
+                    setSingleHopOnly(!singleHopOnly)
+                  }}
+                />
+              </RowBetween>
+            </AutoColumn>
+          </MenuFlyout>
+        </Box>
       )}
     </StyledMenu>
   )

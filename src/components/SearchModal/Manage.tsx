@@ -58,32 +58,33 @@ export default function Manage({
   const [showLists, setShowLists] = useState(true)
 
   return (
-    <Wrapper>
-      <PaddedColumn>
+    <Wrapper className='manage_modal_prnt'>
+      <PaddedColumn className='manage_header_prnt'>
         <RowBetween>
-          <ArrowLeft style={{ cursor: 'pointer' }} onClick={() => setModalView(CurrencyModalView.search)} />
-          <Text fontWeight={500} fontSize={20}>
+          <ArrowLeft style={{ cursor: 'pointer' }} onClick={() => setModalView(CurrencyModalView.search)} className="back_arrow_btn" />
+          <Text className='manage_header'>
             Manage
           </Text>
-          <CloseIcon onClick={onDismiss} />
+          <CloseIcon onClick={onDismiss} className="close_btn" />
         </RowBetween>
       </PaddedColumn>
-      <Separator />
-      <PaddedColumn style={{ paddingBottom: 0 }}>
-        <ToggleWrapper>
-          <ToggleOption onClick={() => setShowLists(!showLists)} active={showLists}>
+      {/* <Separator /> */}
+      <PaddedColumn style={{ paddingBottom: 0 }} className="paddin_box">
+        <ToggleWrapper className='emp_list_prnt'>
+        <ManageLists setModalView={setModalView} setImportList={setImportList} setListUrl={setListUrl} />
+          {/* <ToggleOption onClick={() => setShowLists(!showLists)} active={showLists}>
             Lists
           </ToggleOption>
           <ToggleOption onClick={() => setShowLists(!showLists)} active={!showLists}>
             Tokens
-          </ToggleOption>
+          </ToggleOption> */}
         </ToggleWrapper>
       </PaddedColumn>
-      {showLists ? (
+      {/* {showLists ? (
         <ManageLists setModalView={setModalView} setImportList={setImportList} setListUrl={setListUrl} />
       ) : (
         <ManageTokens setModalView={setModalView} setImportToken={setImportToken} />
-      )}
+      )} */}
     </Wrapper>
   )
 }

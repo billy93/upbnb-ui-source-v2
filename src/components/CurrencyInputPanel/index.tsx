@@ -198,7 +198,7 @@ export default function CurrencyInputPanel({
                 }}
               />
               {account && currency && showMaxButton && label !== 'To' && (
-                <StyledBalanceMax onClick={onMax}>MAX</StyledBalanceMax>
+                <StyledBalanceMax onClick={onMax} className= "max_btn">MAX</StyledBalanceMax>
               )}
             </>
           )}
@@ -215,7 +215,7 @@ export default function CurrencyInputPanel({
               {pair ? (
                 <DoubleCurrencyLogo currency0={pair.token0} currency1={pair.token1} size={24} margin={true} />
               ) : currency ? (
-                <CurrencyLogo currency={currency} size={'24px'} />
+                <CurrencyLogo currency={currency} size={'20px'} />
               ) : null}
               {pair ? (
                 <StyledTokenName className="pair-name-container">
@@ -309,7 +309,7 @@ export default function CurrencyInputPanel({
         </Box>       
     </Box>
     <Box className='flex_bx flex_bx_02'>
-        <Text></Text>
+        <Text>$281.594</Text>
         <Text>{!hideBalance && !!currency && selectedCurrencyBalance
                     ? (customBalanceText ?? 'Balance: ') + selectedCurrencyBalance?.toSignificant(6)
                     : ' -'}</Text>

@@ -39,18 +39,25 @@ export interface ToggleProps {
 
 export default function ListToggle({ id, isActive, bgColor, toggle }: ToggleProps) {
   return (
-    <Wrapper id={id} isActive={isActive} onClick={toggle}>
-      {isActive && (
-        <StatusText fontWeight="600" margin="0 6px" isActive={true}>
-          ON
-        </StatusText>
-      )}
-      <ToggleElement isActive={isActive} bgColor={bgColor} />
-      {!isActive && (
-        <StatusText fontWeight="600" margin="0 6px" isActive={false}>
-          OFF
-        </StatusText>
-      )}
-    </Wrapper>
+    <div className='flex_raw'>
+      OFF
+      <Wrapper id={id} isActive={isActive} onClick={toggle}>
+        
+        {isActive && (
+          <StatusText fontWeight="600" margin="0 6px" isActive={true}>
+            
+          </StatusText>
+        )}
+        <ToggleElement isActive={isActive} bgColor={bgColor} />
+        {!isActive && (
+          <StatusText fontWeight="600" margin="0 6px" isActive={false}>
+            
+          </StatusText>
+        )}
+        
+      </Wrapper>
+      ON
+    </div>
+    
   )
 }

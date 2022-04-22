@@ -381,9 +381,9 @@ export default function Swap() {
                                     <Text>Balance: 0.00</Text>
                                 </Box> */}
                             </Box>
-                            
-                            <Button className='swap_center_btn'><Image src='img/down_arw_ic.svg' /></Button>
-                            
+                            <Box className='swap_center_btn_prnt'>
+                              <Button className='swap_center_btn'><Image src='img/down_arw_ic.svg' /></Button>
+                            </Box>                            
                             <Box className='swap_upcro_brdr_bx swap_btc_brdr_bx'>
 
                             <CurrencyInputPanel
@@ -418,11 +418,11 @@ export default function Swap() {
                                     <Text>Balance: 1,688,648</Text>
                                 </Box> */}
                             </Box>
-                            {/* <Box className='text_row_darc'>
+                            <Box className='text_row_darc'>
                                 <Text>1 upBNB = 0.00846454 BTC</Text>
                                 <Text>($0.00065486635)</Text>
                                 <Text className='last_p'>Gas: $32.455</Text>
-                            </Box> */}
+                            </Box>
                             {/* <Button className='stake_full_btn'>Stake</Button> */}
 
 

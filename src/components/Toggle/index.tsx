@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react';
 import React from 'react'
 import styled from 'styled-components'
 
@@ -42,13 +43,17 @@ export interface ToggleProps {
 
 export default function Toggle({ id, isActive, toggle }: ToggleProps) {
   return (
-    <StyledToggle id={id} isActive={isActive} onClick={toggle}>
-      <ToggleElement isActive={isActive} isOnSwitch={true}>
-        On
-      </ToggleElement>
-      <ToggleElement isActive={!isActive} isOnSwitch={false}>
-        Off
-      </ToggleElement>
-    </StyledToggle>
+    <Box className='switch_raw'>
+      On
+      <StyledToggle id={id} isActive={isActive} onClick={toggle}>
+        <ToggleElement isActive={isActive} isOnSwitch={true}>
+          
+        </ToggleElement>
+        <ToggleElement isActive={!isActive} isOnSwitch={false}>
+          
+        </ToggleElement>
+      </StyledToggle>
+      Off
+    </Box>
   )
 }

@@ -147,13 +147,13 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
   return (
     <AutoColumn gap="md">
       <AutoColumn gap="sm">
-        <RowFixed>
-          <TYPE.black fontWeight={400} fontSize={14} color={theme.text2}>
+        <RowFixed className='slippage_p_prnt'>
+          <TYPE.black className='slippage_p'>
             Slippage tolerance
           </TYPE.black>
-          <QuestionHelper text="Your transaction will revert if the price changes unfavorably by more than this percentage." />
+          {/* <QuestionHelper text="Your transaction will revert if the price changes unfavorably by more than this percentage." /> */}
         </RowFixed>
-        <RowBetween>
+        <RowBetween className="checkbox_options_prnt">
           <Option
             onClick={() => {
               setSlippageInput('')
@@ -181,7 +181,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
           >
             1%
           </Option>
-          <OptionCustom active={![10, 50, 100].includes(rawSlippage)} warning={!slippageInputIsValid} tabIndex={-1}>
+          <OptionCustom active={![10, 50, 100].includes(rawSlippage)} warning={!slippageInputIsValid} tabIndex={-1} className="index_btn">
             <RowBetween>
               {!!slippageInput &&
               (slippageError === SlippageError.RiskyLow || slippageError === SlippageError.RiskyHigh) ? (
@@ -224,14 +224,14 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
       </AutoColumn>
 
       <AutoColumn gap="sm">
-        <RowFixed>
-          <TYPE.black fontSize={14} fontWeight={400} color={theme.text2}>
+        <RowFixed className='slippage_p_prnt'>
+          <TYPE.black className='slippage_p'>
             Transaction deadline
           </TYPE.black>
-          <QuestionHelper text="Your transaction will revert if it is pending for more than this long." />
+          {/* <QuestionHelper text="Your transaction will revert if it is pending for more than this long." /> */}
         </RowFixed>
-        <RowFixed>
-          <OptionCustom style={{ width: '80px' }} tabIndex={-1}>
+        <RowFixed className="deadlin_time_box_prnt">
+          <OptionCustom style={{ width: '80px' }} tabIndex={-1} className="deadlin_time_box">
             <Input
               color={!!deadlineError ? 'red' : undefined}
               onBlur={() => {
@@ -243,7 +243,7 @@ export default function SlippageTabs({ rawSlippage, setRawSlippage, deadline, se
             />
           </OptionCustom>
           <TYPE.body style={{ paddingLeft: '8px' }} fontSize={14}>
-            minutes
+            min
           </TYPE.body>
         </RowFixed>
       </AutoColumn>

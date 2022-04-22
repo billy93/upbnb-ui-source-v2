@@ -23,11 +23,25 @@ import ListLogo from '../ListLogo'
 import Row, { RowFixed, RowBetween } from '../Row'
 import { PaddedColumn, SearchInput, Separator, SeparatorDark } from './styleds'
 import { useListColor } from '../../hooks/useColor'
-import { useTheme } from '@chakra-ui/react'
+import { Button, useTheme } from '@chakra-ui/react'
 import ListToggle from '../Toggle/ListToggle'
 import Card from '../Card'
 import { CurrencyModalView } from './CurrencySearchModal'
 import { UNSUPPORTED_LIST_URLS } from '../../constants/lists'
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  Box,
+  Image,
+  Heading,
+} from '@chakra-ui/react'
+import ImportTokenModal from './ImportTokenModal'
 
 const Wrapper = styled(Column)`
   width: 100%;
@@ -93,6 +107,7 @@ function listUrlRowHTMLId(listUrl: string) {
 }
 
 const ListRow = memo(function ListRow({ listUrl }: { listUrl: string }) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const listsByUrl = useSelector<AppState, AppState['lists']['byUrl']>(state => state.lists.byUrl)
   const dispatch = useDispatch<AppDispatch>()
   const { current: list, pendingUpdate: pending } = listsByUrl[listUrl]
@@ -159,42 +174,44 @@ const ListRow = memo(function ListRow({ listUrl }: { listUrl: string }) {
   }, [dispatch, listUrl])
 
   if (!list) return null
-
+ 
   return (
-    <RowWrapper active={isActive} bgColor={listColor} key={listUrl} id={listUrlRowHTMLId(listUrl)}>
-      {list.logoURI ? (
-        <ListLogo size="40px" style={{ marginRight: '1rem' }} logoURI={list.logoURI} alt={`${list.name} list logo`} />
-      ) : (
-        <div style={{ width: '24px', height: '24px', marginRight: '1rem' }} />
-      )}
-      <Column style={{ flex: '1' }}>
-        <Row>
-          <StyledTitleText active={isActive}>{list.name}</StyledTitleText>
-        </Row>
-        <RowFixed mt="4px">
-          <StyledListUrlText active={isActive} mr="6px">
-            {list.tokens.length} tokens
-          </StyledListUrlText>
-          <StyledMenu ref={node as any}>
-            <ButtonEmpty onClick={toggle} ref={setReferenceElement} padding="0">
-              <Settings stroke={isActive ? theme.bg1 : theme.text1} size={12} />
-            </ButtonEmpty>
-            {open && (
-              <PopoverContainer show={true} ref={setPopperElement as any} style={styles.popper} {...attributes.popper}>
-                <div>{list && listVersionLabel(list.version)}</div>
-                <SeparatorDark />
-                <ExternalLink href={`https://tokenlists.org/token-list?url=${listUrl}`}>View list</ExternalLink>
-                <UnpaddedLinkStyledButton onClick={handleRemoveList} disabled={Object.keys(listsByUrl).length === 1}>
-                  Remove list
-                </UnpaddedLinkStyledButton>
-                {pending && (
-                  <UnpaddedLinkStyledButton onClick={handleAcceptListUpdate}>Update list</UnpaddedLinkStyledButton>
-                )}
-              </PopoverContainer>
-            )}
-          </StyledMenu>
-        </RowFixed>
-      </Column>
+    <RowWrapper active={isActive} bgColor={listColor} key={listUrl} id={listUrlRowHTMLId(listUrl)} className="list_mange_cntnt">
+      <Button onClick={onOpen} className='modal_slct_tcn_wrpr'>
+        {list.logoURI ? (
+          <ListLogo size="40px" style={{ marginRight: '1rem' }} logoURI={list.logoURI} alt={`${list.name} list logo`} />
+        ) : (
+          <div style={{ width: '24px', height: '24px', marginRight: '1rem' }} />
+        )}
+        <Column style={{ flex: '1' }}>
+          <Row>
+            <StyledTitleText className='manage_tocn_text_big' active={isActive}>{list.name}</StyledTitleText>
+          </Row>
+          <RowFixed mt="4px">
+            <StyledListUrlText active={isActive} mr="6px" className='manage_tocn_small'>
+              {list.tokens.length} tokens
+            </StyledListUrlText>
+            <StyledMenu ref={node as any}>
+              <ButtonEmpty onClick={toggle} ref={setReferenceElement} padding="0">
+                <Settings stroke={isActive ? theme.bg1 : theme.text1} size={12} />
+              </ButtonEmpty>
+              {open && (
+                <PopoverContainer show={true} ref={setPopperElement as any} style={styles.popper} {...attributes.popper}>
+                  <div>{list && listVersionLabel(list.version)}</div>
+                  <SeparatorDark />
+                  <ExternalLink href={`https://tokenlists.org/token-list?url=${listUrl}`}>View list</ExternalLink>
+                  <UnpaddedLinkStyledButton onClick={handleRemoveList} disabled={Object.keys(listsByUrl).length === 1}>
+                    Remove list
+                  </UnpaddedLinkStyledButton>
+                  {pending && (
+                    <UnpaddedLinkStyledButton onClick={handleAcceptListUpdate}>Update list</UnpaddedLinkStyledButton>
+                  )}
+                </PopoverContainer>
+              )}
+            </StyledMenu>
+          </RowFixed>
+        </Column>
+      </Button>
       <ListToggle
         isActive={isActive}
         bgColor={listColor}
@@ -202,6 +219,31 @@ const ListRow = memo(function ListRow({ listUrl }: { listUrl: string }) {
           isActive ? handleDisableList() : handleEnableList()
         }}
       />
+      <Modal isOpen={isOpen} onClose={onClose} isCentered id="SelectTokenModal">
+                <ModalOverlay />
+                <ModalContent className='select_tocan_popup'>
+                <ModalHeader>Select a token</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody className='containt_cntr'>
+                    <Box className='select_tocan_cntnt'>
+                        <Box className='inpt_slect_prnt'>
+                            <input type="text" placeholder="Search name or paste address"></input>
+                        </Box>
+                        {/* <ImportToken /> */}
+                        <ImportTokenModal />
+                        <Box className='exclim_text'>
+                            <Heading as="h5" >Expanded results from inactive Token Lists</Heading>
+                            <Image src='/img/claim_ic.svg' />
+                        </Box>
+                    </Box>
+                    {/* <ManageModel /> */}
+                </ModalBody>
+                  <Button className='mnage_btn_slt'>
+                    <Image src="/img/manag_ic.svg" />
+                    Manage
+                  </Button>
+                </ModalContent>
+            </Modal>
     </RowWrapper>
   )
 })
@@ -316,12 +358,12 @@ export function ManageLists({
 
   return (
     <Wrapper>
-      <PaddedColumn gap="14px">
-        <Row>
+      <PaddedColumn className='input_prnt'>
+        <Row className='inpt_inn'>
           <SearchInput
             type="text"
             id="list-add-input"
-            placeholder="https:// or ipfs:// or ENS name"
+            placeholder="Search name or paste address"
             value={listUrlInput}
             onChange={handleInput}
           />
@@ -364,9 +406,9 @@ export function ManageLists({
           </Card>
         </PaddedColumn>
       )}
-      <Separator />
-      <ListContainer>
-        <AutoColumn gap="md">
+      {/* <Separator /> */}
+      <ListContainer className='manage_list_prnt'>
+        <AutoColumn >
           {sortedLists.map(listUrl => (
             <ListRow key={listUrl} listUrl={listUrl} />
           ))}

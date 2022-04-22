@@ -14,9 +14,9 @@ const StyledSwapHeader = styled.div`
 
 export default function SwapHeader() {
   return (
-    <StyledSwapHeader>
+    <StyledSwapHeader className='swap_header_ash'>
       <RowBetween>
-        <TYPE.black fontWeight={500}>Swap</TYPE.black>
+        <TYPE.black className='swap_text_as' fontWeight={500}>Swap</TYPE.black>
         <Settings />
       </RowBetween>
     </StyledSwapHeader>
