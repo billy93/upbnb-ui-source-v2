@@ -2,6 +2,8 @@ import React from 'react'
 import { Box, SimpleGrid, GridItem, Heading, Text, Button, Image } from '@chakra-ui/react'
 import { Element } from 'react-scroll';
 // import { motion, useMotionValue, useTransform } from "framer-motion";
+import Lottie from 'react-lottie'
+import t1 from '../../assets/lottie/upBNB.json'
 
 export default function FirstSec() {
     // const x = useMotionValue(200);
@@ -16,6 +18,14 @@ export default function FirstSec() {
     //     x.set(event.clientX - rect.left);
     //     y.set(event.clientY - rect.top);
     // }
+    const top = {
+        loop: true,
+        autoplay: true,
+        animationData: t1,
+        rendererSettings: {
+          preserveAspectRatio: "xMidYMid slice"
+        }
+    };
   return (
     <>
     <Element name='Introduction'>
@@ -53,8 +63,13 @@ export default function FirstSec() {
                                         rotateX: rotateX,
                                         rotateY: rotateY
                                     }}> */}
+                                    
                                         <Box className='radial_gradiant_box'>
-                                            <Image src='img/upbnb_first_sec.png' className='upcro_first_img' />
+                                            {/* <Image src='img/upbnb_first_sec.png' className='upcro_first_img' /> */}
+                                            <Box className='upcro_first_img'>
+                                            <Lottie options={top} width={450} height={450}></Lottie>
+                                            {/* <Image src='img/bnnr_img.png' /> */}
+                                            </Box>
                                         </Box>
                                     {/* </motion.div>
                                 </motion.div> */}
