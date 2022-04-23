@@ -3632,7 +3632,7 @@ body{
   .slect_box {
     border: 1px solid #F3BA2F;
     border-radius: 4px;
-    width: 134px;
+    width: auto;
     height: 36px;
     .open-currency-select-button {
       width: 100%;
@@ -3644,7 +3644,7 @@ body{
       &>span{
         justify-content: flex-start;
         svg {
-          margin-left: auto;
+          margin-left: 10px;
         }
       }
       .token-symbol-container {
