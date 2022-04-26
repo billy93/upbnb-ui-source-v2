@@ -145,7 +145,7 @@ export function ConfirmationModalContent({
     <Wrapper>
       <Section>
         <RowBetween>
-          <Text fontWeight={500} fontSize={20} color={theme.text1}>
+          <Text fontWeight={500} fontSize={20} color={"#FFFFFF"}>
             {title}
           </Text>
           <CloseIcon onClick={onDismiss} />
