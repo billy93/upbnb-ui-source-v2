@@ -41,13 +41,21 @@ export function colors(): Colors {
 
     // text
     text1: '#FFFFFF',
+    // text1: '#353535',
     text2: '#C3C5CB',
     text3: '#6C7284',
     text4: '#565A69',
     text5: '#2C2F36',
 
+    // text1: white,
+    // text2: white,
+    // text3: white,
+    // text4: white,
+    // text5: white,
+
     // backgrounds / greys
-    bg1: '#061121',
+    // bg1: '#061121',
+    bg1: '#2B2108',
     bg2: '#2C2F36',
     bg3: '#40444F',
     bg4: '#565A69',
@@ -58,7 +66,8 @@ export function colors(): Colors {
     advancedBG: 'rgba(0,0,0,0.1)',
 
     //primary colors
-    primary1: '#129dff',
+    // primary1: '#129dff',
+    primary1: '#F3BA2F',
     primary2: '#5ad535',
     primary3: '#57be4a',
     primary4: '#58ad3770',

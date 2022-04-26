@@ -25,7 +25,7 @@ import TokenWarningModal from '../components/TokenWarningModal'
 import ProgressSteps from '../components/ProgressSteps'
 import SwapHeader from '../components/swap/SwapHeader'
 
-import { INITIAL_ALLOWED_SLIPPAGE } from '../constants'
+import { INITIAL_ALLOWED_SLIPPAGE, ROOTED_ADDRESS, STAKING_ADDRESS } from '../constants'
 import { useActiveWeb3React } from '../hooks'
 import { useCurrency, useAllTokens } from '../hooks/Tokens'
 import { ApprovalState, useApproveCallbackFromTrade } from '../hooks/useApproveCallback'
@@ -43,6 +43,7 @@ import {
 import { useExpertModeManager, useUserSlippageTolerance, useUserSingleHopOnly } from '../state/user/hooks'
 import { LinkStyledButton, TYPE } from '../theme'
 import { maxAmountSpend } from '../utils/maxAmountSpend'
+import { shortenAddress } from '../utils';
 import { computeTradePriceBreakdown, warningSeverity } from '../utils/prices'
 import AppBody from './AppBody'
 import { ClickableText } from './Pool/styleds'
@@ -419,9 +420,9 @@ export default function Swap() {
                                 </Box> */}
                             </Box>
                             <Box className='text_row_darc'>
-                                <Text>1 upBNB = 0.00846454 BTC</Text>
+                                {/* <Text>1 upBNB = 0.00846454 BTC</Text>
                                 <Text>($0.00065486635)</Text>
-                                <Text className='last_p'>Gas: $32.455</Text>
+                                <Text className='last_p'>Gas: $32.455</Text> */}
                             </Box>
                             {/* <Button className='stake_full_btn'>Stake</Button> */}
 
@@ -576,8 +577,8 @@ export default function Swap() {
                     <Box className='contracts_box'>
                         <Heading as="h4">Contracts</Heading>
                         <Box className='upcro_copyflex'>
-                            <Heading as="h6">upBNB<Text>0xb0620........f790f<Button><Image src="img/copy_ic.svg" alt='' /></Button></Text></Heading>
-                            <Heading as="h6" className='right_h6'>xUpBNB<Text>0x78Bf85......ed90e<Button><Image src="img/copy_ic.svg" alt='' /></Button></Text></Heading>
+                            <Heading as="h6">upBNB<Text>{shortenAddress(ROOTED_ADDRESS)}<Button><Image src="img/copy_ic.svg" alt='' /></Button></Text></Heading>
+                            <Heading as="h6" className='right_h6'>xUpBNB<Text>{shortenAddress(STAKING_ADDRESS)}<Button><Image src="img/copy_ic.svg" alt='' /></Button></Text></Heading>
                         </Box>
                     </Box>
                 </Container>

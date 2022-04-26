@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Token, Currency } from '../../sdk'
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import { TYPE, CloseIcon } from '../../theme'
 import Card from '../Card'
 import { AutoColumn } from '../Column'
@@ -8,7 +8,7 @@ import { RowBetween, RowFixed, AutoRow } from '../Row'
 import CurrencyLogo from '../CurrencyLogo'
 import { ArrowLeft, AlertTriangle } from 'react-feather'
 import { transparentize } from 'polished'
-import { useTheme } from '@chakra-ui/react'
+// import { useTheme } from '@chakra-ui/react'
 import { ButtonPrimary } from '../Button'
 import { SectionBreak } from '../swap/styleds'
 import { useAddUserToken } from '../../state/user/hooks'
@@ -49,6 +49,7 @@ interface ImportProps {
 export function ImportToken({ tokens, onBack, onDismiss, handleCurrencySelect }: ImportProps) {
   const theme = useTheme()
 
+  console.log(theme)
   const { chainId } = useActiveWeb3React()
 
   const [confirmed, setConfirmed] = useState(false)
@@ -63,7 +64,7 @@ export function ImportToken({ tokens, onBack, onDismiss, handleCurrencySelect }:
     (chainId && inactiveTokenList?.[chainId]?.[tokens[0]?.address]?.list) ||
     (chainId && inactiveTokenList?.[chainId]?.[tokens[1]?.address]?.list)
 
-  return (
+  let old =  (
     <Wrapper>
       <PaddedColumn gap="14px" style={{ width: '100%', flex: '1 1' }}>
         <RowBetween>
@@ -161,4 +162,6 @@ export function ImportToken({ tokens, onBack, onDismiss, handleCurrencySelect }:
       </PaddedColumn>
     </Wrapper>
   )
+
+  return old
 }

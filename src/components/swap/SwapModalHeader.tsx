@@ -43,13 +43,13 @@ export default function SwapModalHeader({
           <TruncatedText
             fontSize={24}
             fontWeight={500}
-            color={showAcceptChanges && trade.tradeType === TradeType.EXACT_OUTPUT ? theme.primary1 : ''}
+            color={showAcceptChanges && trade.tradeType === TradeType.EXACT_OUTPUT ? theme.text1 : theme.text1}
           >
             {trade.inputAmount.toSignificant(6)}
           </TruncatedText>
         </RowFixed>
         <RowFixed gap={'0px'}>
-          <Text fontSize={24} fontWeight={500} style={{ marginLeft: '10px' }}>
+          <Text fontSize={24} fontWeight={500} style={{ marginLeft: '10px' }} color={theme.text1}>
             {trade.inputAmount.currency.symbol}
           </Text>
         </RowFixed>
@@ -67,15 +67,15 @@ export default function SwapModalHeader({
               priceImpactSeverity > 2
                 ? theme.red1
                 : showAcceptChanges && trade.tradeType === TradeType.EXACT_INPUT
-                ? theme.primary1
-                : ''
+                ? theme.text1
+                : theme.text1
             }
           >
             {trade.outputAmount.toSignificant(6)}
           </TruncatedText>
         </RowFixed>
         <RowFixed gap={'0px'}>
-          <Text fontSize={24} fontWeight={500} style={{ marginLeft: '10px' }}>
+          <Text fontSize={24} fontWeight={500} style={{ marginLeft: '10px' }} color={theme.text1}>
             {trade.outputAmount.currency.symbol}
           </Text>
         </RowFixed>

@@ -309,7 +309,7 @@ export default function CurrencyInputPanel({
         </Box>       
     </Box>
     <Box className='flex_bx flex_bx_02'>
-        <Text>$281.594</Text>
+        <Text></Text>
         <Text>{!hideBalance && !!currency && selectedCurrencyBalance
                     ? (customBalanceText ?? 'Balance: ') + selectedCurrencyBalance?.toSignificant(6)
                     : ' -'}</Text>
