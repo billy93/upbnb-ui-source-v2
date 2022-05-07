@@ -28,7 +28,7 @@ export default function FeaturesSec() {
                             <Heading as="h6">New Features</Heading>
                             <Heading as="h3">Coming Soon</Heading>
                             <Text>
-                                Since launching in 2021 we have added multiple new features to our UpToken contracts including a drip fault, a dedicated marketing vault, and some unique functions never before seen in DeFi! Our drip vault offers a multi-layered, double auto-compounding staking system with a huge, predictable APY and our marketing vault is funded with a percentage of all trade fees with verified spends happening regularly. We've also included some cool, new, never before seen functions including the ability to convert any percent of price impact directly into liquidity without affecting the user slippage! Mind blowing!
+                                Since launching in 2021 we have added multiple new features to our UpToken contracts including a drip vault, a dedicated marketing vault, and some unique functions never before seen in DeFi! Our drip vault offers a multi-layered, double auto-compounding staking system with a huge, predictable APY and our marketing vault is funded with a percentage of all trade fees with verified spends happening regularly. We've also included some cool, new, never before seen functions including the ability to convert any percent of price impact directly into liquidity without affecting the user slippage! Mind blowing!
                             </Text>
                         </Box>
                     </GridItem>

@@ -5,10 +5,10 @@ import Articles from '../pages/Articles';
 import Dashboard from '../pages/Dashboard';
 import Faq from '../pages/Faq';
 import HomePage from '../pages/HomePage';
-import Pools from '../pages/Pools';
 import Roadmap from '../pages/Roadmap';
 import Staking from '../pages/Staking';
 import Swap from '../pages/Swap';
+import PoolsPage from '../pages/PoolsPage';
 
 
 
@@ -30,7 +30,7 @@ const AppRoutes = () => {
         <Route path='/swap' element={<Swap />} />
         <Route path='/faq' element={<Faq />} />
         <Route path='/roadmap' element={<Roadmap />} />
-        <Route path='/pools' element={<Pools />} />
+        <Route path='/pools' element={<PoolsPage />} />
       </Routes>
      
     </>

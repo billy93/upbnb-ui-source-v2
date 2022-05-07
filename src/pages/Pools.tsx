@@ -551,7 +551,7 @@ export default function Pools() {
   )
   return (
     <>
-        <LayoutTwo>
+        {/* <LayoutTwo> */}
             <Box className='pools_main'>
               <Box className='pool_list_box'>
                 <Box className='dashboard_chart_box dashboard_chart_box_last'>
@@ -619,7 +619,7 @@ export default function Pools() {
                   </Box>
               </Box>
             </Box>
-        </LayoutTwo>
+        {/* </LayoutTwo> */}
     </>
   )
 }

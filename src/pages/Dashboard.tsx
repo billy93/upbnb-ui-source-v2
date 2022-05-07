@@ -16,6 +16,7 @@ import { ONE_HOUR_SECONDS } from '../constants/info'
 import fetchTokenPriceData from '../state/info/queries/tokens/priceData'
 import { ChartEntry, PriceChartEntry } from '../state/info/types'
 import { getUnixTime, startOfHour, sub } from 'date-fns'
+import Pools from './Pools'
 
 export default function Dashboard() {
   const [priceData, setPriceData] = useState<PriceChartEntry[]>();
@@ -117,7 +118,8 @@ export default function Dashboard() {
                 </GridItem>
                 <GridItem colSpan={[12, 12, 12, 12]}>
                   <Box className='dashboard_chart_box dashboard_chart_box_last'>
-                    <Box className='flex_chart_header flex_chart_header_last'>
+                    <Pools/>
+                    {/* <Box className='flex_chart_header flex_chart_header_last'>
                       <Heading as="h3">List of all pools</Heading>
                     </Box>
                     <Box className='pools_tablemain'>
@@ -209,7 +211,7 @@ export default function Dashboard() {
                       <Button><Image src='img/pagination_prev.svg' alt="" /></Button>
                       <Text>Page <span>1 of 20</span></Text>
                       <Button><Image src='img/pagination_next.svg' alt="" /></Button>
-                    </Box>
+                    </Box> */}
                   </Box>
                 </GridItem>
               </SimpleGrid>

@@ -151,18 +151,18 @@ export default function SettingsTab() {
           <AutoColumn gap="lg">
             <RowBetween style={{ padding: '0 2rem' }}>
               <div />
-              <Text fontWeight={500} fontSize={20}>
+              <Text fontWeight={500} fontSize={20} color={"#FFFFFF"}>
                 Are you sure?
               </Text>
               <StyledCloseIcon onClick={() => setShowConfirmation(false)} />
             </RowBetween>
             <Break />
             <AutoColumn gap="lg" style={{ padding: '0 2rem' }}>
-              <Text fontWeight={500} fontSize={20}>
+              <Text fontWeight={500} fontSize={20} color={"#FFFFFF"}>
                 Expert mode turns off the confirm transaction prompt and allows high slippage trades that often result
                 in bad rates and lost funds.
               </Text>
-              <Text fontWeight={600} fontSize={20}>
+              <Text fontWeight={600} fontSize={20} color={"#FFFFFF"}>
                 ONLY USE THIS MODE IF YOU KNOW WHAT YOU ARE DOING.
               </Text>
               <ButtonError
