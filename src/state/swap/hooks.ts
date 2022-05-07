@@ -123,6 +123,9 @@ export function useDerivedSwapInfo(): {
 
   const inputCurrency = useCurrency(inputCurrencyId)
   const outputCurrency = useCurrency(outputCurrencyId)
+  // const outputCurrency = useCurrency("0x1759254EB142bcF0175347D5A0f3c19235538a9A")
+
+  
   const recipientLookup = useENS(recipient ?? undefined)
   const to: string | null = (recipient === null ? account : recipientLookup.address) ?? null
 
@@ -135,11 +138,7 @@ export function useDerivedSwapInfo(): {
   const parsedAmount = tryParseAmount(typedValue, (isExactIn ? inputCurrency : outputCurrency) ?? undefined)
   const bestTradeExactIn = useTradeExactIn(isExactIn ? parsedAmount : undefined, outputCurrency ?? undefined)
   const bestTradeExactOut = useTradeExactOut(inputCurrency ?? undefined, !isExactIn ? parsedAmount : undefined)
-  // console.log("currencyInput : ", inputCurrency)
-  // console.log("currencyOutput : ", outputCurrency)
-  // console.log("parsedAmount : ", parsedAmount)
-  // console.log("bestTradeExactIn : ", bestTradeExactIn)
-  // console.log("bestTradeExactOut : ", bestTradeExactOut)
+
   const v2Trade = isExactIn ? bestTradeExactIn : bestTradeExactOut
   const currencyBalances = {
     [Field.INPUT]: relevantTokenBalances[0],
@@ -276,8 +275,10 @@ export function useDefaultsFromURLSearch():
       replaceSwapState({
         typedValue: parsed.typedValue,
         field: parsed.independentField,
-        inputCurrencyId: parsed[Field.INPUT].currencyId,
-        outputCurrencyId: parsed[Field.OUTPUT].currencyId,
+        inputCurrencyId: "BNB",
+        outputCurrencyId: "0x1759254EB142bcF0175347D5A0f3c19235538a9A",
+        // inputCurrencyId: parsed[Field.INPUT].currencyId,
+        // outputCurrencyId: parsed[Field.OUTPUT].currencyId,
         recipient: parsed.recipient
       })
     )

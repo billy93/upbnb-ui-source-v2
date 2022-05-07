@@ -18,10 +18,10 @@ const initialState: SwapState = {
   independentField: Field.INPUT,
   typedValue: '',
   [Field.INPUT]: {
-    currencyId: ''
+    currencyId: 'BNB'
   },
   [Field.OUTPUT]: {
-    currencyId: ''
+    currencyId: '0x1759254EB142bcF0175347D5A0f3c19235538a9A'
   },
   recipient: null
 }

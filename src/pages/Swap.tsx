@@ -385,7 +385,12 @@ export default function Swap() {
                                 </Box> */}
                             </Box>
                             <Box className='swap_center_btn_prnt'>
-                              <Button className='swap_center_btn'><Image src='img/down_arw_ic.svg' /></Button>
+                              <Button 
+                                className='swap_center_btn'
+                                onClick={() => {
+                                  setApprovalSubmitted(false) // reset 2 step UI for approvals
+                                  onSwitchTokens()
+                                }}><Image src='img/down_arw_ic.svg' /></Button>
                             </Box>                            
                             <Box className='swap_upcro_brdr_bx swap_btc_brdr_bx'>
 
