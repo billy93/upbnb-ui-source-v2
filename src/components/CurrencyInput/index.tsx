@@ -2,6 +2,7 @@ import React from 'react'
 import { useWeb3React } from '@web3-react/core'
 import NumericalInput from '../NumericalInput'
 import { Box, Button, Text } from '@chakra-ui/react'
+import { ROOTED_ADDRESS, ROOTED_TICKER } from '../../constants'
 
 interface CurrencyInputProps {
   value: string
@@ -42,7 +43,7 @@ export default function CurrencyInput({
   return (
     <Box className='stake_inpt_box'>
       <Box className='text_row'>
-          <Text>Amount to stake</Text>
+          <Text>Amount to {ticker === ROOTED_TICKER ? "stake" : "unstake"}</Text>
           <Text>{!hideBalance && balance ? `${balanceLabel}: ${balance}`: '-'}</Text>
       </Box>
 
