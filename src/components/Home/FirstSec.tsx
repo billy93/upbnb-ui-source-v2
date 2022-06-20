@@ -67,7 +67,7 @@ export default function FirstSec() {
                                         <Box className='radial_gradiant_box'>
                                             {/* <Image src='img/upbnb_first_sec.png' className='upcro_first_img' /> */}
                                             <Box className='upcro_first_img'>
-                                            <Lottie options={top} width={450} height={450}></Lottie>
+                                            <Lottie options={top} width={660} height={660}></Lottie>
                                             {/* <Image src='img/bnnr_img.png' /> */}
                                                 {/* <video width="520" height="auto" autoPlay muted loop>
                                                     <source src="/img/upbnbvideo.mp4" type="video/mp4" />

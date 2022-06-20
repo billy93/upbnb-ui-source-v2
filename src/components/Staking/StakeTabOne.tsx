@@ -182,55 +182,57 @@ export default function StakeTabOne() {
             <TabPanels>
                 <TabPanel className='stake_tab_panel01_prnt'>
                     <Box className='stake_tab_panel01'>
-                        <Heading as="h6">{rate}</Heading>
-                        
-                        <CurrencyInput
-                            value={value}
-                            balance={getDisplayBalance(balance, 2)}
-                            numericBalance={getBalanceNumber(balance)}
-                            onSubmit={stake}
-                            ticker={action === Action.Stake ? ROOTED_TICKER : STAKING_TICKER}
-                            label={`Amount to ${action === Action.Stake ? "stake" : "unstake"}`}
-                            onMax={() => setValue(getFullDisplayBalance(balance))}
-                            showMaxButton={true}
-                            onUserInput={setValue}
-                            id={"stakingInput"}
-                        />
+                        <Box className='p_rltv_up'>
+                            <Heading as="h6">{rate}</Heading>
+                            <CurrencyInput
+                                value={value}
+                                balance={getDisplayBalance(balance, 2)}
+                                numericBalance={getBalanceNumber(balance)}
+                                onSubmit={stake}
+                                ticker={action === Action.Stake ? ROOTED_TICKER : STAKING_TICKER}
+                                label={`Amount to ${action === Action.Stake ? "stake" : "unstake"}`}
+                                onMax={() => setValue(getFullDisplayBalance(balance))}
+                                showMaxButton={true}
+                                onUserInput={setValue}
+                                id={"stakingInput"}
+                            />
 
-                        {action === Action.Unstake || isApproved
-                        ? 
-                            <Button className='stake_full_btn' disabled={status === StakingStatus.Staking || !supportedChain(chainId)} onClick={stake}>
-                                {status === StakingStatus.Staking 
-                                ? <PendingContent text={pendingAction}/> 
-                                : `${action === Action.Stake ? "Stake" : "Unstake"}`}
-                            </Button>
-                        :
-                            <div>
-                                <Button className='stake_full_btn' onClick={approve} disabled={status === StakingStatus.Approving || !supportedChain(chainId)}>
-                                    {status === StakingStatus.Approving 
-                                        ? <PendingContent text={"Approving..."}/>
-                                        : status === StakingStatus.Approved ? "Approved" : "Approve"
-                                    }
+                            {action === Action.Unstake || isApproved
+                            ? 
+                                <Button className='stake_full_btn' disabled={status === StakingStatus.Staking || !supportedChain(chainId)} onClick={stake}>
+                                    {status === StakingStatus.Staking 
+                                    ? <PendingContent text={pendingAction}/> 
+                                    : `${action === Action.Stake ? "Stake" : "Unstake"}`}
                                 </Button>
-                                <br/>
-                                <Button className='stake_full_btn' disabled={status !== StakingStatus.Approved || !supportedChain(chainId)} onClick={stake}>
-                                    {status === StakingStatus.Staking
-                                        ? <PendingContent text={"Staking..."}/>
-                                        : "Stake"
-                                    }
-                                </Button>                                
-                            </div>
-                        }
+                            :
+                                <div>
+                                    <Button className='stake_full_btn' onClick={approve} disabled={status === StakingStatus.Approving || !supportedChain(chainId)}>
+                                        {status === StakingStatus.Approving 
+                                            ? <PendingContent text={"Approving..."}/>
+                                            : status === StakingStatus.Approved ? "Approved" : "Approve"
+                                        }
+                                    </Button>
+                                    <br/>
+                                    <Button className='stake_full_btn' disabled={status !== StakingStatus.Approved || !supportedChain(chainId)} onClick={stake}>
+                                        {status === StakingStatus.Staking
+                                            ? <PendingContent text={"Staking..."}/>
+                                            : "Stake"
+                                        }
+                                    </Button>                                
+                                </div>
+                            }
 
-                        <Button className='stake_full_btn' disabled={payFeesStatus !== PayFeesStatus.None || !supportedChain(chainId)} onClick={payFees}>
-                        {payFeesStatus === PayFeesStatus.Pending
-                            ? <PendingContent text={"Pay Fees..."}/>
-                            : payFeesStatus === PayFeesStatus.None ? "Pay Fees" :
-                            "Pay Fees Success"
-                        }
-                        </Button>
+                            <Button className='stake_full_btn' disabled={payFeesStatus !== PayFeesStatus.None || !supportedChain(chainId)} onClick={payFees}>
+                            {payFeesStatus === PayFeesStatus.Pending
+                                ? <PendingContent text={"Pay Fees..."}/>
+                                : payFeesStatus === PayFeesStatus.None ? "Pay Fees" :
+                                "Pay Fees Success"
+                            }
+                            </Button>
 
-                        {error ? <ErrorMessage error={error} /> : null}
+                            {error ? <ErrorMessage error={error} /> : null}
+                        </Box>
+                        
                     </Box>
                     {/* <Box className='stake_emp_dex_btns'>
                         <Button disabled className='btn_dc'>Stake</Button>
@@ -240,53 +242,56 @@ export default function StakeTabOne() {
                 </TabPanel>
                 <TabPanel className='stake_tab_panel01_prnt stake_tab_panel02_prnt'>
                     <Box className='stake_tab_panel01'>
-                        <Heading as="h6">{rate}</Heading>
-                        
-                        <CurrencyInput
-                            value={value}
-                            balance={getDisplayBalance(balance, 2)}
-                            numericBalance={getBalanceNumber(balance)}
-                            onSubmit={stake}
-                            ticker={action === Action.Stake ? ROOTED_TICKER : STAKING_TICKER}
-                            label={`Amount to ${action === Action.Stake ? "stake" : "unstake"}`}
-                            onMax={() => setValue(getFullDisplayBalance(balance))}
-                            showMaxButton={true}
-                            onUserInput={setValue}
-                            id={"stakingInput"}
-                        />
+                        <Box className='p_rltv_up'>
+                            <Heading as="h6">{rate}</Heading>
+                            
+                            <CurrencyInput
+                                value={value}
+                                balance={getDisplayBalance(balance, 2)}
+                                numericBalance={getBalanceNumber(balance)}
+                                onSubmit={stake}
+                                ticker={action === Action.Stake ? ROOTED_TICKER : STAKING_TICKER}
+                                label={`Amount to ${action === Action.Stake ? "stake" : "unstake"}`}
+                                onMax={() => setValue(getFullDisplayBalance(balance))}
+                                showMaxButton={true}
+                                onUserInput={setValue}
+                                id={"stakingInput"}
+                            />
 
-                        {action === Action.Unstake || isApproved
-                        ? 
-                            <Button className='stake_full_btn' disabled={status === StakingStatus.Staking || !supportedChain(chainId)} onClick={stake}>
-                                {status === StakingStatus.Staking 
-                                ? <PendingContent text={pendingAction}/> 
-                                : `${action === Action.Stake ? "Stake" : "Unstake"}`}
-                            </Button>
-                        :
-                            <div>
-                                <Button className='stake_full_btn' onClick={approve} disabled={status === StakingStatus.Approving || !supportedChain(chainId)}>
-                                    {status === StakingStatus.Approving 
-                                        ? <PendingContent text={"Approving..."}/>
-                                        : status === StakingStatus.Approved ? "Approved" : "Approve"
-                                    }
+                            {action === Action.Unstake || isApproved
+                            ? 
+                                <Button className='stake_full_btn unstkbtn' disabled={status === StakingStatus.Staking || !supportedChain(chainId)} onClick={stake}>
+                                    {status === StakingStatus.Staking 
+                                    ? <PendingContent text={pendingAction}/> 
+                                    : `${action === Action.Stake ? "Stake" : "Unstake"}`}
                                 </Button>
-                                <br/>
-                                <Button className='stake_full_btn' disabled={status !== StakingStatus.Approved || !supportedChain(chainId)} onClick={stake}>
-                                    {status === StakingStatus.Staking
-                                        ? <PendingContent text={"Staking..."}/>
-                                        : "Stake"
-                                    }
-                                </Button>                                
-                            </div>
-                        }
+                            :
+                                <div>
+                                    <Button className='stake_full_btn' onClick={approve} disabled={status === StakingStatus.Approving || !supportedChain(chainId)}>
+                                        {status === StakingStatus.Approving 
+                                            ? <PendingContent text={"Approving..."}/>
+                                            : status === StakingStatus.Approved ? "Approved" : "Approve"
+                                        }
+                                    </Button>
+                                    <br/>
+                                    <Button className='stake_full_btn' disabled={status !== StakingStatus.Approved || !supportedChain(chainId)} onClick={stake}>
+                                        {status === StakingStatus.Staking
+                                            ? <PendingContent text={"Staking..."}/>
+                                            : "Stake"
+                                        }
+                                    </Button>                                
+                                </div>
+                            }
 
-                        <Button className='stake_full_btn' disabled={payFeesStatus !== PayFeesStatus.None || !supportedChain(chainId)} onClick={payFees}>
-                        {payFeesStatus === PayFeesStatus.Pending
-                            ? <PendingContent text={"Pay Fees..."}/>
-                            : payFeesStatus === PayFeesStatus.None ? "Pay Fees" :
-                            "Pay Fees Success"
-                        }
-                        </Button>
+                            <Button className='stake_full_btn' disabled={payFeesStatus !== PayFeesStatus.None || !supportedChain(chainId)} onClick={payFees}>
+                            {payFeesStatus === PayFeesStatus.Pending
+                                ? <PendingContent text={"Pay Fees..."}/>
+                                : payFeesStatus === PayFeesStatus.None ? "Pay Fees" :
+                                "Pay Fees Success"
+                            }
+                            </Button>
+                        </Box>
+                        
                     </Box>
 
                     {error ? <ErrorMessage error={error} /> : null}

@@ -625,6 +625,7 @@ body{
     background-size: cover;
     border-radius: 90px;
     margin: 0 auto;
+    overflow: hidden;
     h6{
       font-family: $f_primary;
       font-weight: 400;
@@ -773,7 +774,7 @@ body{
     margin-bottom: 20px;
   }
   .technology_main .tech_bg_box p {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 22px;
     margin-bottom: 25px;
   }
@@ -1826,7 +1827,7 @@ body{
   // background: #000000;
   // box-shadow: 0px 15px 80px rgba(243, 186, 47, 0.2);
   background: linear-gradient(180deg, #000000 0%, #202020 100%);
-  box-shadow: 0px 15px 80px rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 15px 30px rgb(255 255 255 / 15%);
 
 }
 .sidebar_logo_prnt{
@@ -2331,8 +2332,22 @@ body{
 
 .stake_tab_panel01{
   margin-top: 35px;
-  padding: 25px 40px 40px 40px;
-  background: #000000;
+  padding: 0px 40px 0px 40px;
+  // background: #000000;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 40px;
+    right: 0;
+    background: #000000;
+  }
+  .p_rltv_up {
+    position: relative;
+    z-index: 1;
+  }
   h6{
     font-family: $f_primary;
     font-style: normal;
@@ -2350,21 +2365,32 @@ body{
     font-size: 16.0741px;
     line-height: 19px;
     text-align: center;
-    color: #353535;
-    border: 1px solid #F3BA2F;
+    color: #000;
+    border: none;
+    // border: 1px solid #F3BA2F;
     // background: #F3BA2F;
-    background: linear-gradient(107.86deg, #0E0A00 9.08%, #7E5A00 117.11%);
+    background: #F3BA2F;
     border-radius: 60px;
     width: 100%;
     height: 48px;
     margin-top: 20px;
     transition: all 0.2s ease-out;
+    &:disabled {
+      background: linear-gradient(107.86deg, #0E0A00 9.08%, #7E5A00 117.11%) !important;
+      color: #fff;
+      opacity: 1;
+    }
     &:focus{
       box-shadow: none;
     }
     &:hover{
       background: #000000;
       color: #ffffff;
+    }
+  }
+  .unstkbtn {
+    &:disabled {
+      background: linear-gradient(107.86deg, #0D000E 9.08%, #7E5A00 117.11%) !important;
     }
   }
 }
@@ -2620,6 +2646,10 @@ body{
     font-size: 15px;
     height: 40px;
     margin-top: 15px;
+    color: #fff !important;
+  }
+  .stake_tab_panel01 .stake_full_btn:disabled {
+    color: #fff !important;
   }
   .stake_emp_dex_btns {
     margin-top: 5px;
@@ -3468,7 +3498,7 @@ body{
 @media screen and (max-width: 575px) {
   .technology_main .tech_bg_box .techno_img_prnt {
     .techno_img {
-      max-width: 300px;
+      max-width: 100%;
     }
     .circle_img {
       max-width: 55px;
@@ -4403,4 +4433,24 @@ section.select_tocan_popup {
   bottom: 0;
   right: 0;
   // background: rgba(0, 0, 0, 0.8);
+}
+.rmvpoolbg {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+  .pools_main{
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    .pool_list_box {
+      border: none !important;
+      box-shadow: none !important;
+    }
+  }
+}
+@media screen and (max-width: 1300px) {
+  .upcro_first_img>div {
+    width: 100% !important; 
+    height: 100% !important;
+  }
 }

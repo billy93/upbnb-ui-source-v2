@@ -154,13 +154,13 @@ const LayoutTwo = (props:any) => {
               <Image src='img/sidebar_link_ic06.svg' alt="" />
               <span>FAQ</span>
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to='/roadmap'
               className={splitLocation[1] === '' ? 'active' : ''}
             >
               <Image src='img/sidebar_link_ic06.svg' alt="" />
               <span>Roadmap</span>
-            </NavLink>
+            </NavLink> */}
           </Flex>
         </Flex>
         <Flex className='social_links_prnt'>

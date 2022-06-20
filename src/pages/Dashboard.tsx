@@ -117,7 +117,7 @@ export default function Dashboard() {
                   </Box>
                 </GridItem>
                 <GridItem colSpan={[12, 12, 12, 12]}>
-                  <Box className='dashboard_chart_box dashboard_chart_box_last'>
+                  <Box className='dashboard_chart_box dashboard_chart_box_last rmvpoolbg'>
                     <Pools/>
                     {/* <Box className='flex_chart_header flex_chart_header_last'>
                       <Heading as="h3">List of all pools</Heading>
