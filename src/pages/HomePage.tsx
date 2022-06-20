@@ -10,6 +10,7 @@ import ArticleSec from '../components/Home/ArticleSec';
 import RoadmapSec from '../components/Home/RoadmapSec';
 import HowToBuySec from '../components/Home/HowToBuySec';
 import AOS from 'aos';
+import Footer from '../layout/Footer';
 
 export default function HomePage() {
   AOS.init();
@@ -26,8 +27,9 @@ export default function HomePage() {
           <FeaturesSec />
           <TeamSec />
           <ArticleSec />
-          <RoadmapSec />
+          {/* <RoadmapSec /> */}
           <HowToBuySec />
+          <Footer/>
         </Box>
       </>
     </Layout>
