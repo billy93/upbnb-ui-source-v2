@@ -483,7 +483,7 @@ export default function Swap() {
                                 <TYPE.main mb="4px">Unsupported Asset</TYPE.main>
                               </ButtonPrimary>
                             ) : !account ? (
-                              <ButtonLight onClick={toggleWalletModal}>Connect Wallet</ButtonLight>
+                              <ButtonLight onClick={toggleWalletModal} className="cheng_btn_swap">Connect Wallet</ButtonLight>
                             ) : showWrap ? (
                               <ButtonPrimary disabled={Boolean(wrapInputError)} onClick={onWrap}>
                                 {wrapInputError ??

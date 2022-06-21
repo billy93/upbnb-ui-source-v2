@@ -2385,8 +2385,8 @@ body{
       box-shadow: none;
     }
     &:hover{
-      background: #000000;
-      color: #ffffff;
+      background: #c99412;
+      color: #020200;
     }
   }
   .unstkbtn {
@@ -3591,7 +3591,7 @@ body{
       .checkbox_options_prnt {
         margin-bottom: 10px;
         button {
-          background: #584412;
+          background: #1F1F1F;
           border-radius: 8px;
           font-family: 'Roboto';
           font-style: normal;
@@ -3602,9 +3602,11 @@ body{
           color: rgba(255, 255, 255, 0.4);
           width: 68px;
           height: 33px;
+          border: none !important;
         }
-        button.cHxFfV {
-          color: #ffffff;
+        button.cHxFfV, button:focus {
+          color: #ffffff !important;
+          font-weight: 600;
         }
         .index_btn {
           max-width: 121px;
@@ -4454,4 +4456,24 @@ section.select_tocan_popup {
     width: 100% !important; 
     height: 100% !important;
   }
+}
+.cheng_btn_swap{
+  background: #26082B !important;
+  border-radius: 60px !important;
+  font-family: 'Roboto'!important;
+  font-style: normal;
+  font-weight: 700 !important;
+  font-size: 16.0741px !important;
+  line-height: 19px;
+  color: #BB7CBC !important;
+  padding: 0 !important;
+  height: 48px;
+  text-transform: inherit !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: all 0.2s ease-out !important;
+}
+.cheng_btn_swap:hover{
+  background: #F3BA2F !important;
+  color: #353535 !important;
 }
