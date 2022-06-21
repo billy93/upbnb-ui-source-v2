@@ -2117,7 +2117,7 @@ body{
   table{
     min-width: 660px;
     thead{
-      background: #191C21;
+      background: #171717;
       tr{
         th{
           border: none;
@@ -2157,7 +2157,7 @@ body{
           font-size: 16px;
           line-height: 19px;
           text-align: center;
-          color: #F3BA2F;
+          color: #fff;
           padding: 10px;
           &:last-child{
             padding-right: 50px;
@@ -2184,6 +2184,11 @@ body{
             justify-content: center;
             margin-left: 6px;
             color: #FFFFFF;
+          }
+        }
+        &:last-child {
+          td {
+            border-bottom: none;
           }
         }
       }
@@ -3364,11 +3369,11 @@ body{
   .pool_list_box{
     max-width: 1490px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
     border-radius: 16px;
-    border: 1px solid #F3BA2F;
-    box-shadow: 0px 0px 10px 2px;
+    border: 1px solid rgb(243 186 47 / 90%);
+    box-shadow: 0px 0px 30px 2px rgba(243, 186, 47, 0.1);
     overflow: hidden;
     .flex_chart_header{
       display: flex;
@@ -3390,7 +3395,7 @@ body{
         max-width: 547.93px;
         height: 52px;
         width: 100%;
-        background: #333B49;
+        background: #171717;
         border-radius: 60px;
         padding: 0 12px 0 20px;
         input{
@@ -3406,24 +3411,19 @@ body{
           width: 80%;
         }
         button{
-          padding: 0;
+          padding: 0 5px 0 0;
           height: auto;
           min-width: 0;
           background: transparent;
           &:focus{
             box-shadow: none;
           }
-          &:hover{
-            img{
-              filter: invert(54%) sepia(93%) saturate(5742%) hue-rotate(207deg) brightness(96%) contrast(107%);
-            }
-          }
         }
       }
     }
   }
   .pagination_row {
-    background: #323B49;
+    background: #171717;
   }
 }
 @media screen and (max-width: 575px) {
